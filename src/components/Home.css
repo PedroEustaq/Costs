@@ -17,17 +17,21 @@ div.meio {
     position: relative;
     isolation: isolate;
     overflow: hidden;
+    /* Fundo estático — sem pseudo-elemento animado, sem will-change */
+    background-image: url("/public/PlanAma.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* nunca fixed */
 }
 
 div.meio::before {
     content: "";
     position: absolute;
-    inset: -5%;
+   
     background-image: url("/public/PlanAma.jpg");
     background-size: cover;
     background-position: center;
     animation: slideBackground 60s linear infinite alternate;
-    will-change: transform;
     z-index: -1;
     pointer-events: none;
 }
