@@ -1,16 +1,9 @@
-
-
 @keyframes slideBackground {
     0% {
-        background-position: 0% 50%;
+        transform: translate3d(-3%, 0, 0);
     }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
     100% {
-        background-position: 0% 50%;
+        transform: translate3d(3%, 0, 0);
     }
 }
 
@@ -20,13 +13,24 @@ div.meio {
     align-items: center;
     justify-content: space-around;
     flex-flow: column nowrap;
-    background-image: url("/public/PlanAma.jpg");
-    background-size: 150%;
     min-height: 2000px;
-    animation: slideBackground 60s linear infinite alternate;
-    background-attachment: fixed;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
 }
 
+div.meio::before {
+    content: "";
+    position: absolute;
+    inset: -5%;
+    background-image: url("/public/PlanAma.jpg");
+    background-size: cover;
+    background-position: center;
+    animation: slideBackground 60s linear infinite alternate;
+    will-change: transform;
+    z-index: -1;
+    pointer-events: none;
+}
 
 .welcome-section {
     display: flex;
@@ -50,7 +54,6 @@ div.meio {
     width: 50%;
 }
 
-/* Efeito hover */
 .welcome-section:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow:
@@ -59,28 +62,25 @@ div.meio {
         0 0 0 2px rgba(255, 255, 255, 0.2) inset;
 }
 
-/* Efeito de brilho ao passar o mouse */
+/* Efeito de brilho ao passar o mouse (GPU-friendly via transform) */
 .welcome-section::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg,
-            transparent,
-            rgba(255, 255, 255, 0.1),
-            transparent);
-    transform: rotate(45deg);
-    transition: all 0.5s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transform: translateX(-100%);
     opacity: 0;
+    will-change: transform, opacity;
+    pointer-events: none;
 }
 
 .welcome-section:hover::before {
     animation: shine 1.5s infinite;
 }
 
-/* Efeito de clique */
 .welcome-section:active {
     transform: translateY(-2px) scale(0.98);
     box-shadow:
@@ -89,42 +89,22 @@ div.meio {
         0 0 0 2px rgba(255, 255, 255, 0.05) inset;
 }
 
-/* Animação do brilho */
 @keyframes shine {
     0% {
-        left: -100%;
+        transform: translateX(-100%);
         opacity: 0;
     }
-
     20% {
-        opacity: 0.1;
+        opacity: 0.5;
     }
-
+    80% {
+        opacity: 0.5;
+    }
     100% {
-        left: 100%;
+        transform: translateX(100%);
         opacity: 0;
     }
 }
-
-/* Efeito de borda pulsante */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(51, 204, 204, 0.4);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(51, 204, 204, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(51, 204, 204, 0);
-    }
-}
-
-.welcome-section:hover {
-    animation: pulse 2s infinite;
-}
-
 
 .title {
     text-align: center;
@@ -224,12 +204,6 @@ div.meio {
     font-size: 30px;
 }
 
-/* Adicionando destaque para a palavra "pessoal" */
-.seuOrg span {
-    color: #33cccc;
-    font-weight: 600;
-}
-
 .seuOrg span {
     color: #33cccc;
     font-weight: 600;
@@ -240,7 +214,6 @@ div.meio {
 .seuOrg span:hover {
     text-shadow: 2px 2px 4px rgba(51, 204, 204, 0.3);
 }
-
 
 .primeira1 {
     display: flex;
@@ -261,7 +234,6 @@ div.meio {
     border: 0px solid #ffbb33;
     justify-content: space-around;
     max-width: 1400px;
-
 }
 
 .primeiraPart {
@@ -279,8 +251,6 @@ div.meio {
 .filtragem {
     background-color: rgb(255, 255, 255);
     font-size: 25px;
-
-
     border: 2px solid #ffbb33;
     border-radius: 10px;
     height: 50%;
@@ -297,19 +267,19 @@ div.meio {
 .filtragem>img {
     width: 20%;
     padding: 20px;
-    transition: all 0.2s;
+    transition: transform 0.2s ease;
 }
 
 .filtragem>img:hover {
-    filter: drop-shadow(0 0 10px rgba(255, 187, 51, 0.5));
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 @keyframes anim2 {
     0% {
         transform: translateX(-160px);
         opacity: 0;
-    scale: 0.9;
+        scale: 0.9;
     }
     100% {
         opacity: 1;
@@ -327,22 +297,21 @@ div.meio {
         transform: translateX(0px);
         opacity: 1;
     }
-    
 }
+
 @keyframes anim4 {
     0% {
         opacity: 1;
         transform: translateX(0px);
         scale: 1;
     }
-    50% {
-    }
+    50% {}
     100% {
-        
         transform: translateX(0px);
         opacity: 1;
     }
 }
+
 .filtragem>img:nth-child(3) {
     animation-name: anim2;
     animation-duration: 3s;
@@ -352,6 +321,7 @@ div.meio {
     animation-direction: alternate;
     animation-fill-mode: forwards;
 }
+
 .filtragem>img:nth-child(4) {
     animation-name: anim3;
     animation-duration: 3s;
@@ -361,6 +331,7 @@ div.meio {
     animation-direction: alternate;
     animation-fill-mode: forwards;
 }
+
 .filtragem>img:nth-child(2) {
     animation-name: anim4;
     animation-duration: 3s;
@@ -370,9 +341,9 @@ div.meio {
     animation-direction: alternate;
     animation-fill-mode: forwards;
 }
-/* Efeito alternado para cada imagem */
+
 .filtragem>img:nth-child(2):hover {
-    filter: drop-shadow(0 0 10px rgba(255, 187, 51, 0.5));
+    transform: scale(1.08);
 }
 
 .filtragem>img:nth-child(3):hover {
@@ -384,9 +355,7 @@ div.meio {
     width: 45%;
     box-shadow: 14px 17px 0px 1px #ffbb33;
     max-width: 600px;
-
     background-color: #ffffff;
-    border-radius: 10px;
     padding: 0px;
     display: flex;
     flex-flow: column nowrap;
@@ -446,25 +415,22 @@ div.meio {
     padding: 10px;
     font-weight: 400;
 }
+
 @keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
-
-
 
 .receita {
     background-color: rgb(42, 42, 42);
     font-size: 25px;
-
-
     border: 2px solid #ffbb33;
     border-radius: 0px;
     height: 50%;
@@ -568,13 +534,14 @@ div.meio {
     align-items: center;
     width: 90%;
 }
+
 .envelopar {
     display: flex;
     align-items: center;
     justify-content: start;
     height: 40px;
-
 }
+
 .faq-item div::before {
     content: '?';
     background-color: #ffbb33;
@@ -591,9 +558,11 @@ div.meio {
     font-size: 1.5em;
     font-weight: bold;
 }
+
 .faq-item:nth-child(even) div::before {
     background-color: #33cccc;
 }
+
 .faq-item:nth-child(even) h3::before {
     background-color: #33cccc;
 }
@@ -609,7 +578,6 @@ div.meio {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Adicionar um efeito de destaque ao passar o mouse */
 .faq-item:hover h3 {
     color: #33cccc;
 }
@@ -618,7 +586,6 @@ div.meio {
     color: #ffbb33;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .FAQs {
         padding: 20px 15px;
@@ -628,32 +595,40 @@ div.meio {
         font-size: 2em;
         width: 100%;
     }
+
     .faq-container {
         width: 110%;
     }
+
     .faq-item {
         padding: 20px;
         width: 100%;
     }
+
     .primeira1 {
         display: flex;
         flex-flow: column nowrap;
     }
+
     .welcome-section {
         width: 80%;
     }
+
     .title {
         font-size: 25px;
     }
+
     .subtitle {
         font-size: 13px;
     }
+
     .ladoD {
         margin-left: 0px;
         margin-top: 30px;
         width: 90%;
         height: 300px;
     }
+
     .utilidades {
         flex-flow: column nowrap;
         height: 900px;
@@ -661,20 +636,25 @@ div.meio {
         align-items: center;
         justify-content: start;
     }
-    .utilidades > div {
+
+    .utilidades>div {
         width: 90%;
         margin-top: 40px;
     }
-    .outraParte  {
+
+    .outraParte {
         height: 400px;
     }
-    .checklist > img {
+
+    .checklist>img {
         transform: translateY(0px);
     }
-    .checklist > h1 {
+
+    .checklist>h1 {
         padding: 5px;
     }
-    .porcentanges > h1 {
+
+    .porcentanges>h1 {
         padding-left: 10px;
         transform: translateY(10px);
     }

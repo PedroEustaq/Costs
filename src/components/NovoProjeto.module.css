@@ -1,3 +1,12 @@
+@keyframes slideBackground {
+    0% {
+        transform: translate3d(-3%, 0, 0);
+    }
+    100% {
+        transform: translate3d(3%, 0, 0);
+    }
+}
+
 .meio {
     width: 100%;
     min-height: 75vh;
@@ -5,23 +14,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
     background-color: #f8f9fa;
-    background-image: url("/public/PlanAma.jpg");
-    animation: slideBackground 60s linear infinite alternate;
-    background-size: 150%;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
 }
-@keyframes slideBackground {
-    0% {
-        background-position: 0% 50%;
-    }
 
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+.meio::before {
+    content: "";
+    position: absolute;
+    inset: -15%;
+    background-image: url("/public/PlanAma.jpg");
+    background-size: cover;
+    background-position: center;
+    animation: slideBackground 60s linear infinite alternate;
+    will-change: transform;
+    z-index: -1;
+    pointer-events: none;
 }

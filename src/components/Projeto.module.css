@@ -1,3 +1,12 @@
+@keyframes slideBackground {
+    0% {
+        transform: translate3d(-3%, 0, 0);
+    }
+    100% {
+        transform: translate3d(3%, 0, 0);
+    }
+}
+
 .meio {
     width: 100%;
     min-height: 75vh;
@@ -5,12 +14,24 @@
     display: flex;
     align-items: start;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
     background-color: #f8f9fa;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.meio::before {
+    content: "";
+    position: absolute;
+    inset: -15%;
     background-image: url("/public/PlanAma.jpg");
+    background-size: cover;
+    background-position: center;
     animation: slideBackground 60s linear infinite alternate;
-    background-size: 150%;
+    will-change: transform;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .centro {
@@ -32,20 +53,6 @@
     justify-content: center;
 }
 
-@keyframes slideBackground {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 .caixa {
     background: linear-gradient(145deg, #ffffff, #f5f5f5);
     padding: 2rem;
@@ -57,7 +64,7 @@
     border: 1px solid rgba(255, 187, 51, 0.1);
     width: 270px;
     height: 200px;
-    margin: 5px
+    margin: 5px;
 }
 
 .caixa:hover {
@@ -103,14 +110,11 @@
     padding: 0.8rem 1.2rem;
     border-radius: 8px;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 800;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-weight: 800;
 }
-
-
 
 .categoria {
     background-color: #ffbb33;
@@ -249,18 +253,14 @@
     0% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(-10px);
     }
-
     100% {
         transform: translateY(0px);
     }
 }
 
-
-/* Responsividade para telas menores */
 @media (max-width: 768px) {
     .semContainer {
         min-height: 200px;
@@ -275,12 +275,14 @@
     .naoHa {
         font-size: 1rem;
     }
+
     .centro {
         width: 90%;
         flex-flow: column wrap;
         justify-content: center;
         align-items: center;
     }
+
     .containerPesq {
         width: 90%;
         flex-flow: column wrap;

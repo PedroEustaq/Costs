@@ -8,13 +8,11 @@ import api from "../services/api";
 export default function Projeto() {
 
     const [Projetos, setProjetos] = useState([])
-    const [termoPesquisa, setTermoPesquisa] = useState(""); // Novo estado para o termo de pesquisa
-    const [projetosFiltrados, setProjetosFiltrados] = useState([]); // Estado para projetos filtrados
+    const [termoPesquisa, setTermoPesquisa] = useState("");
+    const [projetosFiltrados, setProjetosFiltrados] = useState([]);
 
     const navigate = useNavigate()
 
-
-    // Função para realizar a pesquisa
     const handlePesquisa = () => {
         const resultadoFiltrado = Projetos.filter(projeto =>
             projeto.nomeDoProjeto.toLowerCase().includes(termoPesquisa.toLowerCase())
@@ -22,17 +20,16 @@ export default function Projeto() {
         setProjetosFiltrados(resultadoFiltrado);
     };
 
-    //Pega dados do API REST
+    // Single useEffect - carrega projetos apenas uma vez
     useEffect(() => {
         api.get("/projects")
             .then(resposta => {
                 setProjetos(resposta.data);
                 setProjetosFiltrados(resposta.data);
             })
-            .catch((err) => console.log(err))
+            .catch((err) => console.log(err));
     }, []);
 
-    //Manda para um AnalisaProjeto junto com a id 
     const handleReDirectAnalisa = (id, nome, budget, categoria, servicos) => {
         navigate(`/analisa/${id}`, {
             state: {
@@ -43,22 +40,7 @@ export default function Projeto() {
             }
         });
     }
-    // Função para buscar projetos
-    const fetchProjetos = () => {
-        api.get("/projects")
-            .then(resposta => {
-                setProjetos(resposta.data);
-                setProjetosFiltrados(resposta.data);
-            })
-            .catch((err) => console.log(err));
-    };
 
-    // UseEffect com array de dependências vazio
-    useEffect(() => {
-        fetchProjetos();
-    }, []);
-
-    // Função para deletar modificada
     const deletarServico = (id) => {
         api.delete(`/projects/${id}`)
             .then(() => {
@@ -68,7 +50,6 @@ export default function Projeto() {
             })
             .catch((err) => console.log(err));
     };
-
 
     return (
         <>
@@ -90,7 +71,6 @@ export default function Projeto() {
                         >
                             Criar Projeto
                         </button>
-
                     </div>
                     <div className={styles.flexProjeto}>
                         {projetosFiltrados.length > 0 ? (
@@ -140,8 +120,6 @@ export default function Projeto() {
                             </div>
                         )}
                     </div>
-
-
                 </div>
             </div>
 

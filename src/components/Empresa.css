@@ -1,12 +1,33 @@
+@keyframes slideBackground {
+    0% {
+        transform: translate3d(-3%, 0, 0);
+    }
+    100% {
+        transform: translate3d(3%, 0, 0);
+    }
+}
+
 .empresa-container {
     padding: 40px 20px;
     background-color: #f5f5f5;
     min-height: 60vh;
     font-family: Arial, sans-serif;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.empresa-container::before {
+    content: "";
+    position: absolute;
+    inset: -15%;
     background-image: url("/public/PlanAma.jpg");
-    background-size: 150%;
+    background-size: cover;
+    background-position: center;
     animation: slideBackground 60s linear infinite alternate;
-    background-attachment: fixed;
+    will-change: transform;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .empresa-content {
@@ -19,7 +40,6 @@
     color: #333;
     margin-bottom: 40px;
     font-size: 2.5rem;
-    
 }
 
 .empresa-info {
@@ -33,7 +53,7 @@
     background-color: white;
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     flex: 1;
     min-width: 250px;
     max-width: 300px;

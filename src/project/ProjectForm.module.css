@@ -27,10 +27,12 @@
     background-color: #ffbb33;
     border-radius: 4px;
 }
+
 div.containerPreco {
     display: flex;
-    flex-flow:  row nowrap;
+    flex-flow: row nowrap;
 }
+
 .form input[type="text"],
 .form input[type="number"],
 .form select {
@@ -87,19 +89,16 @@ div.containerPreco {
     margin-bottom: 1.5rem;
 }
 
-/* Placeholder styling */
 .form input::placeholder {
     color: #999;
 }
 
-/* Remove arrows from number input */
 .form input[type="number"]::-webkit-inner-spin-button,
 .form input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .form {
         padding: 1.5rem;
@@ -119,7 +118,6 @@ div.containerPreco {
     }
 }
 
-/* Animação de entrada do formulário */
 @keyframes formFadeIn {
     from {
         opacity: 0;
@@ -157,21 +155,8 @@ div.containerPreco {
     border-color: #ff8c00 !important;
     background-color: #fff0dd !important;
     box-shadow: 0 0 8px rgba(255, 140, 0, 0.5) !important;
-    animation: glowing 1.5s infinite alternate;
 }
 
-@keyframes glowing {
-    from {
-        box-shadow: 0 0 5px #ffa500,
-                    0 0 10px #ffa500,
-                    0 0 15px #ff8c00;
-    }
-    to {
-        box-shadow: 0 0 10px #ffa500,
-                    0 0 20px #ffa500,
-                    0 0 30px #ff8c00;
-    }
-}
 .buttonGroup {
     display: flex;
     gap: 10px;
@@ -202,15 +187,13 @@ div.containerPreco {
     transform: translateY(0);
 }
 
-/* Responsividade */
 @media (max-width: 480px) {
     .buttonGroup {
         flex-direction: column;
     }
-    
+
     .addButton {
         width: 100%;
         padding: 10px;
     }
 }
-
