@@ -1,146 +1,233 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: 0;
 }
-
-/* ============================================= */
-/* ==== ESTILO BASE (computador) =============== */
-/* ============================================= */
-
-.header {
+header {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background-color: #ffbb33;
-    height: 80px;
-    padding: 0 0px;
-}
-
-/* Parte de cima (logo + botão do menu) */
-.topBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.logo {
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 70px;
-    width: auto;
-}
-
-/* Botão hambúrguer — escondido no computador */
-.botaoMenu {
-    display: none;
-    background-color: #2a2a2a;
     color: white;
-    border: 1px solid white;
-    border-radius: 8px;
-    font-size: 24px;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-}
-
-/* Menu — no computador fica na horizontal, na direita */
-.menu {
-    display: flex;
+    height: 80px;
     align-items: center;
-    gap: 10px;
+    z-index: 99999;
+}
+.logo {
+    z-index: 99999;
     height: 100%;
+    margin-left: 20px;
+}
+.logo img {
+    height: 100%;
+    width: 100%;
+
+}
+.opcoes {
     background-color: #2a2a2a;
-    padding: 0 30px 0 60px;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
     border-top-left-radius: 100px;
     border-bottom-left-radius: 5px;
+    padding-left: 60px;
+    position: relative;
+}
+.lista {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    list-style: none;
+    width: 100%;
+    background-color: rgba(250, 235, 215, 0);
+    z-index: 99999;
+    color: white;
+}
+.item:hover {
+    cursor: pointer;
 }
 
-/* Botões do menu */
-.link,
-.linkProjeto {
-    font-size: 16px;
-    color: white;
-    background-color: transparent;
+.item {
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    list-style: none;
+    margin-right: 10px;
     border: 1px solid white;
     border-radius: 30px;
-    padding: 12px 20px;
-    cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3s;
+    z-index: 99999;
 }
-
-.link:hover {
-    border-color: #bba32f;
+.item:hover {
+    border: 1px solid rgb(186, 163, 47);
 }
-
-.linkProjeto {
+.itemProj {
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: #1945d2;
-    font-weight: 600;
-    letter-spacing: 1px;
+    list-style: none;
+    margin-right: 10px;
+    border: 1px solid white;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.3s;
+    z-index: 99999;
 }
-
-.linkProjeto:hover {
+.itemProj:hover {
+    cursor: pointer;
     background-color: transparent;
-    border-color: #1945d2;
+    border: 1px solid #1945d2;
 }
 
-/* ============================================= */
-/* ==== CELULAR (até 768px) ==================== */
-/* ============================================= */
+.dentroProj:hover {
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #1945d2;
+}
+
+.dentroProj {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #1945d2;
+    list-style: none;
+    margin-right: 10px;
+    border: 1px solid white;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.3s;
+    z-index: 99999;
+    width: 30%;
+}
+
+.dentro:hover {
+    border: 1px solid rgb(186, 163, 47);
+    cursor: pointer;
+}
+.dentro {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    padding-left: 20px;
+    width: 30%;
+    max-width: 110px;
+    padding-right: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    list-style: none;
+    margin-right: 10px;
+    border: 1px solid white;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.3s;
+    z-index: 99999;
+}
+.dentroProj {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    z-index: 99999;
+    font-weight: 600;
+}
+.item:hover {
+    border: 1px solid rgb(186, 163, 47);
+}
+
+.titulo {
+    color: black;
+    z-index: 99999;
+}
+.imgDeco {
+    width: 100%;
+    position: absolute;
+    transform: translateY(-13px);
+    z-index: 1;
+}
 
 @media (max-width: 768px) {
-
-    /* Deixa o header poder "quebrar" em duas linhas:
-       1ª linha: logo + botão
-       2ª linha: menu (quando aberto) */
-    .header {
-        flex-wrap: wrap;
-        height: auto;
-        padding: 0;
+    .opcoes {
+        width: 50%;
+        padding-left: 0px;
     }
-
-    .topBar {
-        width: 100%;
-        height: 70px;
-        padding: 0 15px;
-    }
-
-    /* Mostra o botão hambúrguer no celular */
-    .botaoMenu {
-        display: block;
-    }
-
-    /* O menu fica escondido por padrão no celular */
-    .menu {
+    .lista {
         display: none;
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        height: auto;
-        background-color: #2a2a2a;
-        padding: 10px;
-        border-radius: 0;
     }
-
-    /* Quando isOpen = true, o React adiciona a classe "menuAberto".
-       Aí o menu aparece embaixo do cabeçalho, empurrando o conteúdo. */
-    .menuAberto {
+    .AbrirLista {
+        width: 100%;
         display: flex;
+        justify-content: flex-end;
     }
-
-    /* No celular os botões ocupam a largura toda */
-    .link,
-    .linkProjeto {
-        width: 100%;
-        text-align: center;
+    .AbrirLista > button {
+        font-size: 16px;
+        color: rgb(255, 255, 255);
+        padding: 15px;
+        padding-left: 20px;
+        width: 40%;
+        padding-right: 20px;
+        background-color: rgba(255, 255, 255, 0);
+        list-style: none;
+        margin-right: 10px;
+        border: 1px solid white;
+        border-radius: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        z-index: 99999;
     }
 }
+
+div.Aberto {
+    z-index: 999999999;
+    position: absolute;
+    top: 0%; /* Move para baixo */
+    right: -15%; /* Sai pela direita */
+    width: 400px;
+    height: 200px;
+    background: #ffbb33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    box-shadow: 10px 10px 20px 10px rgba(65, 65, 65, 0.271);
+}
+div.Aberto > button {
+    height: 50px;
+    background: rgb(25, 25, 25);
+}
+div.Aberto > .dentroProj {
+    height: 60px;
+    background: rgb(21, 37, 255);
+}
+div.Aberto > .close {
+    height: 50px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    padding-left: 20px;
+    width: 30%;
+    max-width: 110px;
+    padding-right: 20px;
+    background-color: rgb(255, 66, 66);
+    list-style: none;
+    margin-right: 10px;
+    border: 1px solid white;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 99999;
+}
+
+@media (min-width: 768px) {
+
+    .AbrirLista {
+display: none;
+    }
+    .AbrirLista > button {
+    display: none;
+    }
+}
+
