@@ -7,15 +7,17 @@ import api from '../services/api';
 import { useTranslation } from 'react-i18next';
 
 export default function AnalisaProjeto() {
-    const location = useLocation();
     const { id } = useParams();
+    const location = useLocation();
     const dados = location.state;
     const { t } = useTranslation();
 
-    const [nome, setNome] = useState(dados.nome);
-    const [budget, setBudget] = useState(dados.budget);
-    const [categoria, setCategoria] = useState(dados.categoria);
-    const [servicos, setServicos] = useState(dados.servicos || []);
+    // ✅ CORREÇÃO 1: valores iniciais seguros (aceita location.state OU null)
+    const [nome, setNome] = useState(dados?.nome || "");
+    const [budget, setBudget] = useState(Number(dados?.budget) || 0);
+    const [categoria, setCategoria] = useState(dados?.categoria || "");
+    const [servicos, setServicos] = useState(Array.isArray(dados?.servicos) ? dados.servicos : []);
+
     const [criarnovoS, setCriarNovoS] = useState(false);
     const [taEditando, setTaEditando] = useState(false);
     const [nomeServico, setNomeServico] = useState('');
@@ -27,11 +29,24 @@ export default function AnalisaProjeto() {
         { id: 2, nome: "Design" },
         { id: 3, nome: "Planejamento" },
         { id: 4, nome: "Infraestrutura" }
-    ]
+    ];
+
+    // ✅ CORREÇÃO 2: sempre busca da API (funciona com F5 / link direto / state vazio)
+    useEffect(() => {
+        api.get(`/projects/${id}`)
+            .then(response => {
+                const proj = response.data;
+                setNome(proj.nomeDoProjeto || "");
+                setBudget(Number(proj.budgetDoProjeto) || 0);
+                setCategoria(proj.categoriaDoProjeto || "");
+                setServicos(Array.isArray(proj.servicos) ? proj.servicos : []);
+            })
+            .catch(error => console.error('Erro ao carregar projeto:', error));
+    }, [id]);
 
     const handleEditToggle = () => {
         setTaEditando(!taEditando);
-    }
+    };
 
     const remove = (index) => {
         if (window.confirm(t('analisa.confirmDelete'))) {
@@ -43,7 +58,7 @@ export default function AnalisaProjeto() {
                 categoriaDoProjeto: categoria,
                 servicos: servicosAtualizados
             })
-                .then(response => {
+                .then(() => {
                     console.log('Serviço removido com sucesso!');
                     setServicos(servicosAtualizados);
                 })
@@ -51,41 +66,14 @@ export default function AnalisaProjeto() {
                     console.error('Erro ao remover serviço:', error);
                 });
         }
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        api.put(`/projects/${id}`, {
-            nomeDoProjeto: nome,
-            budgetDoProjeto: budget,
-            categoriaDoProjeto: categoria,
-            servicos: servicos
-        })
-            .then(response => {
-                console.log('Projeto atualizado com sucesso!');
-            })
-            .catch(error => {
-                console.error('Erro ao atualizar:', error);
-            });
-    }
-
-    useEffect(() => {
-        api.get(`/projects/${id}`)
-            .then(response => {
-                if (response.data.servicos) {
-                    setServicos(response.data.servicos);
-                }
-            })
-            .catch(error => console.error('Erro ao carregar serviços:', error));
-    }, [id]);
+    };
 
     const handleNovoServico = (e) => {
         e.preventDefault();
 
         const novoServ = {
             nome: nomeServico,
-            orcamento: parseFloat(orcamentoServico),
+            orcamento: parseFloat(orcamentoServico) || 0,
             descricao: descricaoServico
         };
 
@@ -97,8 +85,8 @@ export default function AnalisaProjeto() {
             categoriaDoProjeto: categoria,
             servicos: servicosAtualizados
         })
-            .then(response => {
-                console.log('Projeto atualizado com sucesso!');
+            .then(() => {
+                console.log('Serviço adicionado com sucesso!');
                 setServicos(servicosAtualizados);
                 setNomeServico('');
                 setOrcamentoServico('');
@@ -106,9 +94,9 @@ export default function AnalisaProjeto() {
                 setCriarNovoS(false);
             })
             .catch(error => {
-                console.error('Erro ao atualizar:', error);
+                console.error('Erro ao adicionar serviço:', error);
             });
-    }
+    };
 
     const handleEditarProjeto = (e) => {
         e.preventDefault();
@@ -119,20 +107,21 @@ export default function AnalisaProjeto() {
             categoriaDoProjeto: categoria,
             servicos: servicos
         })
-            .then(response => {
+            .then(() => {
                 console.log('Projeto atualizado com sucesso!');
                 setTaEditando(false);
             })
             .catch(error => {
                 console.error('Erro ao atualizar:', error);
             });
-    }
+    };
 
+    // ✅ CORREÇÃO 3: conversão para Number evita NaN/string-concat
     const totalGastoServicos = servicos.reduce((total, servico) => {
-        return total + (servico.orcamento || 0);
+        return total + (Number(servico.orcamento) || 0);
     }, 0);
 
-    const orcamentoRestante = budget - totalGastoServicos;
+    const orcamentoRestante = (Number(budget) || 0) - totalGastoServicos;
 
     return (
         <>
@@ -162,7 +151,7 @@ export default function AnalisaProjeto() {
                                     className={styles.select_categoria}
                                     required
                                 >
-                                    <option>{t('analisa.categoryPlaceholder')}</option>
+                                    <option value="">{t('analisa.categoryPlaceholder')}</option>
                                     {categorias.map((cat) => (
                                         <option key={cat.id} value={cat.nome}>
                                             {cat.nome}
@@ -181,15 +170,15 @@ export default function AnalisaProjeto() {
                             <h2 className={styles.catego}>{categoria}</h2>
                             <div className={styles.orcameAnalisa}>
                                 <h1 className={styles.peqDesc}>{t('analisa.totalBudget')}</h1>
-                                <span className={styles.budget}>R$: {budget}</span>
+                                <span className={styles.budget}>R$: {Number(budget).toLocaleString()}</span>
                             </div>
                             <div className={styles.orcameAnalisa}>
                                 <h1 className={styles.peqDesc}>{t('analisa.totalSpent')}</h1>
-                                <span className={styles.budgetGasto}>R$: {totalGastoServicos}</span>
+                                <span className={styles.budgetGasto}>R$: {totalGastoServicos.toLocaleString()}</span>
                             </div>
                             <div className={styles.orcameAnalisa}>
                                 <h1 className={styles.peqDesc}>{t('analisa.remaining')}</h1>
-                                <span className={styles.budgetRestante}>R$: {orcamentoRestante}</span>
+                                <span className={styles.budgetRestante}>R$: {orcamentoRestante.toLocaleString()}</span>
                             </div>
                             <button onClick={handleEditToggle}>{t('analisa.edit')}</button>
                         </div>
@@ -205,18 +194,21 @@ export default function AnalisaProjeto() {
                                 </div>
                             ) : (
                                 servicos.map((servico, index) => {
-                                    const porcentagem = (servico.orcamento / budget) * 100;
+                                    // ✅ CORREÇÃO 4: proteção contra divisão por zero e valores nulos
+                                    const orc = Number(servico.orcamento) || 0;
+                                    const budgetNum = Number(budget) || 0;
+                                    const porcentagem = budgetNum > 0 ? (orc / budgetNum) * 100 : 0;
 
                                     return (
                                         <div key={index} className={styles.servicoCard}>
                                             <h3>{t('analisa.subservice')}: {servico.nome}</h3>
                                             <div className={styles.orcamentoInfo}>
-                                                <p>{t('analisa.budgetLabel')}: R$ {servico.orcamento.toLocaleString()}</p>
+                                                <p>{t('analisa.budgetLabel')}: R$ {orc.toLocaleString()}</p>
                                                 <div className={styles.progressBar}>
                                                     <div
                                                         className={styles.progressFill}
                                                         style={{
-                                                            width: `${porcentagem}%`,
+                                                            width: `${Math.min(porcentagem, 100)}%`,
                                                             backgroundColor: porcentagem > 100 ? '#ff4444' : '#33cccc'
                                                         }}
                                                     ></div>
@@ -239,6 +231,7 @@ export default function AnalisaProjeto() {
                         </div>
                     </div>
 
+                    {/* ✅ CORREÇÃO 5: agora os dois blocos têm propósito diferente */}
                     {criarnovoS ? (
                         <div className={styles.novoServicoForm}>
                             <h3>{t('analisa.addService')}</h3>
@@ -274,33 +267,13 @@ export default function AnalisaProjeto() {
                     ) : (
                         <div className={styles.novoServicoForm}>
                             <h3>{t('analisa.addService')}</h3>
-                            <form onSubmit={handleNovoServico}>
-                                <input
-                                    maxLength={20}
-                                    type="text"
-                                    placeholder={t('analisa.serviceName')}
-                                    value={nomeServico}
-                                    onChange={(e) => setNomeServico(e.target.value)}
-                                    required
-                                />
-                                <input
-                                    type="number"
-                                    placeholder={t('analisa.serviceBudget')}
-                                    value={orcamentoServico}
-                                    onChange={(e) => setOrcamentoServico(e.target.value)}
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    placeholder={t('analisa.serviceDescription')}
-                                    value={descricaoServico}
-                                    onChange={(e) => setDescricaoServico(e.target.value)}
-                                    required
-                                />
-                                <div className={styles.buttonGroup}>
-                                    <button type="submit">{t('analisa.saveService')}</button>
-                                </div>
-                            </form>
+                            <button
+                                type="button"
+                                onClick={() => setCriarNovoS(true)}
+                                style={{ width: '100%', padding: '12px' }}
+                            >
+                                ➕ {t('analisa.addService')}
+                            </button>
                         </div>
                     )}
                 </div>
