@@ -112,12 +112,14 @@
     .form-group > input {
         width: 100%;
         padding: 0px;
+        padding-left: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
     }
     .form-group > textarea {
         width: 100%;
         padding: 0px;
+        padding-left: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
     }
