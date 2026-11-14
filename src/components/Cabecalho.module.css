@@ -19,7 +19,6 @@
     padding: 0 0px;
 }
 
-/* Parte de cima (logo + botão do menu) */
 .topBar {
     display: flex;
     align-items: center;
@@ -38,6 +37,44 @@
     width: auto;
 }
 
+/* Wrapper dos botões da direita (idioma + hambúrguer) */
+.topBarRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 15px;
+}
+
+/* Estilos do Botão de idioma */
+.langButton {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.langButton:hover {
+    background-color: #ffbb33;
+    color: #222;
+    border-color: #ffbb33;
+    transform: translateY(-2px);
+}
+
+/* Classes de controle de visibilidade */
+.desktopOnly {
+    display: block; /* Visível no PC */
+}
+
+.mobileOnly {
+    display: none;  /* Escondido no PC */
+}
+
 /* Botão hambúrguer — escondido no computador */
 .botaoMenu {
     display: none;
@@ -51,7 +88,6 @@
     cursor: pointer;
 }
 
-/* Menu — no computador fica na horizontal, na direita */
 .menu {
     display: flex;
     align-items: center;
@@ -63,7 +99,6 @@
     border-bottom-left-radius: 5px;
 }
 
-/* Botões do menu */
 .link,
 .linkProjeto {
     font-size: 16px;
@@ -98,9 +133,6 @@
 
 @media (max-width: 768px) {
 
-    /* Deixa o header poder "quebrar" em duas linhas:
-       1ª linha: logo + botão
-       2ª linha: menu (quando aberto) */
     .header {
         flex-wrap: wrap;
         height: auto;
@@ -113,12 +145,28 @@
         padding: 0 15px;
     }
 
-    /* Mostra o botão hambúrguer no celular */
+    .topBarRight {
+        padding-right: 0;
+    }
+
+    .langButton {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    /* Inverte a visibilidade no celular */
+    .desktopOnly {
+        display: none !important;  /* Esconde o botão do menu */
+    }
+
+    .mobileOnly {
+        display: block;            /* Mostra o botão do lado do hambúrguer */
+    }
+
     .botaoMenu {
         display: block;
     }
 
-    /* O menu fica escondido por padrão no celular */
     .menu {
         display: none;
         width: 100%;
@@ -131,13 +179,10 @@
         border-radius: 0;
     }
 
-    /* Quando isOpen = true, o React adiciona a classe "menuAberto".
-       Aí o menu aparece embaixo do cabeçalho, empurrando o conteúdo. */
     .menuAberto {
         display: flex;
     }
 
-    /* No celular os botões ocupam a largura toda */
     .link,
     .linkProjeto {
         width: 100%;

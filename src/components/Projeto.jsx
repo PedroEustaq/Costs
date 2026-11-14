@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./Projeto.module.css";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import { useTranslation } from "react-i18next";
 
 export default function Projeto() {
 
@@ -12,6 +13,7 @@ export default function Projeto() {
     const [projetosFiltrados, setProjetosFiltrados] = useState([]);
 
     const navigate = useNavigate()
+    const { t } = useTranslation();
 
     const handlePesquisa = () => {
         const resultadoFiltrado = Projetos.filter(projeto =>
@@ -20,7 +22,6 @@ export default function Projeto() {
         setProjetosFiltrados(resultadoFiltrado);
     };
 
-    // Single useEffect - carrega projetos apenas uma vez
     useEffect(() => {
         api.get("/projects")
             .then(resposta => {
@@ -60,16 +61,16 @@ export default function Projeto() {
                         <input
                             type="text"
                             className={styles.pesqFiltra}
-                            placeholder="Pesquisar um projeto"
+                            placeholder={t('projeto.search')}
                             value={termoPesquisa}
                             onChange={(e) => setTermoPesquisa(e.target.value)}
                         />
-                        <button onClick={handlePesquisa}>Pesquisar</button>
+                        <button onClick={handlePesquisa}>{t('projeto.searchBtn')}</button>
                         <button
                             className={styles.outroBTN}
                             onClick={() => navigate('/novo-projeto')}
                         >
-                            Criar Projeto
+                            {t('projeto.createBtn')}
                         </button>
                     </div>
                     <div className={styles.flexProjeto}>
@@ -102,13 +103,13 @@ export default function Projeto() {
                                                 obj.servicos
                                             )}
                                         >
-                                            Editar
+                                            {t('projeto.edit')}
                                         </button>
                                         <button
                                             className={styles.btnExcluir}
                                             onClick={() => deletarServico(obj.id)}
                                         >
-                                            Excluir
+                                            {t('projeto.delete')}
                                         </button>
                                     </div>
                                 </section>
@@ -116,7 +117,7 @@ export default function Projeto() {
                         ) : (
                             <div className={styles.semContainer}>
                                 <img src="/public/folder.svg" alt="Pasta vazia" />
-                                <p className={styles.naoHa}>Não há projetos cadastrados.</p>
+                                <p className={styles.naoHa}>{t('projeto.noProjects')}</p>
                             </div>
                         )}
                     </div>

@@ -1,39 +1,40 @@
 import Cabecalho from './Cabecalho'
 import './Empresa.css'
 import Rodape from './Rodape'
+import { useTranslation } from 'react-i18next'
 
 export default function Empresa() {
+    const { t } = useTranslation();
+
     return (
         <>
-        <Cabecalho/>
-        <div className="empresa-container">
-            <div className="empresa-content">
-                <h1>Nossa Empresa</h1>
-                <div className="empresa-info">
-                    <div className="info-card">
-                        <h2>Quem Somos</h2>
-                        <p>Somos uma empresa especializada em desenvolvimento de soluções tecnológicas, 
-                           com foco em qualidade e inovação.</p>
-                    </div>
-                    
-                    <div className="info-card">
-                        <h2>Nossa Missão</h2>
-                        <p>Transformar ideias em soluções digitais que fazem a diferença na vida 
-                           das pessoas e empresas.</p>
-                    </div>
+            <Cabecalho />
+            <div className="empresa-container">
+                <div className="empresa-content">
+                    <h1>{t('empresa.title')}</h1>
+                    <div className="empresa-info">
+                        <div className="info-card">
+                            <h2>{t('empresa.whoWeAre')}</h2>
+                            <p>{t('empresa.whoWeAreText')}</p>
+                        </div>
 
-                    <div className="info-card">
-                        <h2>Valores</h2>
-                        <ul>
-                            <li>Inovação</li>
-                            <li>Qualidade</li>
-                            <li>Compromisso</li>
-                        </ul>
+                        <div className="info-card">
+                            <h2>{t('empresa.mission')}</h2>
+                            <p>{t('empresa.missionText')}</p>
+                        </div>
+
+                        <div className="info-card">
+                            <h2>{t('empresa.values')}</h2>
+                            <ul>
+                                <li>{t('empresa.valueInnovation')}</li>
+                                <li>{t('empresa.valueQuality')}</li>
+                                <li>{t('empresa.valueCommitment')}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <Rodape/>
+            <Rodape />
         </>
     )
 }

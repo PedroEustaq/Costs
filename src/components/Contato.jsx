@@ -1,52 +1,55 @@
 import Cabecalho from './Cabecalho'
 import './Contato.css'
 import Rodape from './Rodape'
+import { useTranslation } from 'react-i18next'
 
 export default function Contato() {
+    const { t } = useTranslation();
+
     return (
         <>
             <Cabecalho />
             <div className="contato-container">
-                <h2>Entre em Contato</h2>
+                <h2>{t('contato.title')}</h2>
                 <div className="contato-content">
                     <form className="contato-form">
                         <div className="form-group">
-                            <label htmlFor="nome">Nome:</label>
+                            <label htmlFor="nome">{t('contato.name')}</label>
                             <input
                                 type="text"
                                 id="nome"
                                 name="nome"
-                                placeholder="Seu nome"
+                                placeholder={t('contato.namePlaceholder')}
                                 required
                             />
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email">Email:</label>
+                            <label htmlFor="email">{t('contato.email')}</label>
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
-                                placeholder="Seu email"
+                                placeholder={t('contato.emailPlaceholder')}
                                 required
                             />
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="mensagem">Mensagem:</label>
+                            <label htmlFor="mensagem">{t('contato.message')}</label>
                             <textarea
                                 id="mensagem"
                                 name="mensagem"
-                                placeholder="Sua mensagem"
+                                placeholder={t('contato.messagePlaceholder')}
                                 required
                             ></textarea>
                         </div>
 
-                        <button type="submit" className="submit-btn">Enviar</button>
+                        <button type="submit" className="submit-btn">{t('contato.send')}</button>
                     </form>
 
                     <div className="contato-info">
-                        <h3>Informações de Contato</h3>
+                        <h3>{t('contato.infoTitle')}</h3>
                         <p><i className="fas fa-phone"></i>(11) 56921-1452</p>
                         <p><i className="fas fa-envelope"></i> contato@costs.com</p>
                         <p><i className="fas fa-map-marker-alt"></i> Rua Carlos Augusto Cornelsen, Curitiba</p>

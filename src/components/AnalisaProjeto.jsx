@@ -4,11 +4,13 @@ import Rodape from './Rodape';
 import { useState, useEffect } from 'react';
 import styles from './AnalisaProjeto.module.css';
 import api from '../services/api';
+import { useTranslation } from 'react-i18next';
 
 export default function AnalisaProjeto() {
     const location = useLocation();
     const { id } = useParams();
     const dados = location.state;
+    const { t } = useTranslation();
 
     const [nome, setNome] = useState(dados.nome);
     const [budget, setBudget] = useState(dados.budget);
@@ -16,7 +18,6 @@ export default function AnalisaProjeto() {
     const [servicos, setServicos] = useState(dados.servicos || []);
     const [criarnovoS, setCriarNovoS] = useState(false);
     const [taEditando, setTaEditando] = useState(false);
-    // Criar novos serviços
     const [nomeServico, setNomeServico] = useState('');
     const [orcamentoServico, setOrcamentoServico] = useState('');
     const [descricaoServico, setDescricaoServico] = useState('');
@@ -31,13 +32,11 @@ export default function AnalisaProjeto() {
     const handleEditToggle = () => {
         setTaEditando(!taEditando);
     }
-    // função  de remover
+
     const remove = (index) => {
-        if (window.confirm('Tem certeza que deseja excluir este serviço?')) {
-            // Cria uma cópia do array de serviços excluindo o item do índice especificado
+        if (window.confirm(t('analisa.confirmDelete'))) {
             const servicosAtualizados = servicos.filter((_, i) => i !== index);
 
-            // Atualiza o projeto no backend com o novo array de serviços
             api.put(`/projects/${id}`, {
                 nomeDoProjeto: nome,
                 budgetDoProjeto: budget,
@@ -46,7 +45,6 @@ export default function AnalisaProjeto() {
             })
                 .then(response => {
                     console.log('Serviço removido com sucesso!');
-                    // Atualiza o estado local com os serviços atualizados
                     setServicos(servicosAtualizados);
                 })
                 .catch(error => {
@@ -55,8 +53,6 @@ export default function AnalisaProjeto() {
         }
     }
 
-
-    //Manda tudo de forma nova para o backend
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -74,7 +70,6 @@ export default function AnalisaProjeto() {
             });
     }
 
-    // Busca os serviços atuais do projeto
     useEffect(() => {
         api.get(`/projects/${id}`)
             .then(response => {
@@ -85,7 +80,6 @@ export default function AnalisaProjeto() {
             .catch(error => console.error('Erro ao carregar serviços:', error));
     }, [id]);
 
-
     const handleNovoServico = (e) => {
         e.preventDefault();
 
@@ -95,7 +89,6 @@ export default function AnalisaProjeto() {
             descricao: descricaoServico
         };
 
-        // Cria um novo array com todos os serviços existentes mais o novo
         const servicosAtualizados = [...servicos, novoServ];
 
         api.put(`/projects/${id}`, {
@@ -115,9 +108,8 @@ export default function AnalisaProjeto() {
             .catch(error => {
                 console.error('Erro ao atualizar:', error);
             });
-
-
     }
+
     const handleEditarProjeto = (e) => {
         e.preventDefault();
 
@@ -140,7 +132,6 @@ export default function AnalisaProjeto() {
         return total + (servico.orcamento || 0);
     }, 0);
 
-
     const orcamentoRestante = budget - totalGastoServicos;
 
     return (
@@ -153,14 +144,14 @@ export default function AnalisaProjeto() {
                             <form onSubmit={handleEditarProjeto}>
                                 <input
                                     type="text"
-                                    placeholder='Nome do projeto'
+                                    placeholder={t('analisa.projectNamePlaceholder')}
                                     value={nome}
                                     onChange={(e) => setNome(e.target.value)}
                                     required
                                 />
                                 <input
                                     type="number"
-                                    placeholder='Orçamento do projeto'
+                                    placeholder={t('analisa.projectBudgetPlaceholder')}
                                     value={budget}
                                     onChange={(e) => setBudget(e.target.value)}
                                     required
@@ -171,62 +162,56 @@ export default function AnalisaProjeto() {
                                     className={styles.select_categoria}
                                     required
                                 >
-                                    <option>Selecione uma categoria</option>
-                                    {categorias.map((categoria) => (
-                                        <option key={categoria.id} value={categoria.nome}>
-                                            {categoria.nome}
+                                    <option>{t('analisa.categoryPlaceholder')}</option>
+                                    {categorias.map((cat) => (
+                                        <option key={cat.id} value={cat.nome}>
+                                            {cat.nome}
                                         </option>
                                     ))}
                                 </select>
                                 <div className={styles.buttonGroup}>
-                                    <button type="submit">Salvar</button>
-                                    <button type="button" onClick={handleEditToggle}>Cancelar</button>
+                                    <button type="submit">{t('analisa.save')}</button>
+                                    <button type="button" onClick={handleEditToggle}>{t('analisa.cancel')}</button>
                                 </div>
                             </form>
                         </div>
-
                     ) : (
                         <div className={styles.ladoE}>
-                            <h1 className={styles.projetoTit}>Projeto: {nome}</h1>
+                            <h1 className={styles.projetoTit}>{t('analisa.projectLabel')}: {nome}</h1>
                             <h2 className={styles.catego}>{categoria}</h2>
                             <div className={styles.orcameAnalisa}>
-                                <h1 className={styles.peqDesc}>Orçamento Total</h1>
+                                <h1 className={styles.peqDesc}>{t('analisa.totalBudget')}</h1>
                                 <span className={styles.budget}>R$: {budget}</span>
                             </div>
                             <div className={styles.orcameAnalisa}>
-                                <h1 className={styles.peqDesc}>Total Gasto</h1>
+                                <h1 className={styles.peqDesc}>{t('analisa.totalSpent')}</h1>
                                 <span className={styles.budgetGasto}>R$: {totalGastoServicos}</span>
                             </div>
                             <div className={styles.orcameAnalisa}>
-                                <h1 className={styles.peqDesc}>Restante</h1>
+                                <h1 className={styles.peqDesc}>{t('analisa.remaining')}</h1>
                                 <span className={styles.budgetRestante}>R$: {orcamentoRestante}</span>
                             </div>
-                            <button onClick={handleEditToggle}>Editar</button>
+                            <button onClick={handleEditToggle}>{t('analisa.edit')}</button>
                         </div>
                     )}
 
-
-
-
-
                     <div className={styles.servicosExistentes}>
-                        <h2>Serviços do Projeto</h2>
+                        <h2>{t('analisa.services')}</h2>
                         <div className={styles.servicosGrid}>
                             {servicos.length === 0 ? (
                                 <div className={styles.semServicos}>
-                                    <p>Não há serviços cadastrados neste projeto</p>
+                                    <p>{t('analisa.noServices')}</p>
                                     <span>😕</span>
                                 </div>
                             ) : (
                                 servicos.map((servico, index) => {
-                                    // Calcula a porcentagem do orçamento
                                     const porcentagem = (servico.orcamento / budget) * 100;
 
                                     return (
                                         <div key={index} className={styles.servicoCard}>
-                                            <h3>Subserviço: {servico.nome}</h3>
+                                            <h3>{t('analisa.subservice')}: {servico.nome}</h3>
                                             <div className={styles.orcamentoInfo}>
-                                                <p>Orçamento: R$ {servico.orcamento.toLocaleString()}</p>
+                                                <p>{t('analisa.budgetLabel')}: R$ {servico.orcamento.toLocaleString()}</p>
                                                 <div className={styles.progressBar}>
                                                     <div
                                                         className={styles.progressFill}
@@ -237,95 +222,90 @@ export default function AnalisaProjeto() {
                                                     ></div>
                                                 </div>
                                                 <p className={styles.porcentagem}>
-                                                    Utiliza {porcentagem.toFixed(2)}% do orçamento total
+                                                    {t('analisa.budgetUsed', { percent: porcentagem.toFixed(2) })}
                                                 </p>
                                             </div>
-                                            <p>Descrição: {servico.descricao}</p>
+                                            <p>{t('analisa.description')}: {servico.descricao}</p>
                                             <button
                                                 onClick={() => remove(index)}
                                                 className={styles.removeButton}
                                             >
-                                                Remover
+                                                {t('analisa.remove')}
                                             </button>
                                         </div>
                                     );
-
                                 })
                             )}
                         </div>
                     </div>
 
                     {criarnovoS ? (
-
                         <div className={styles.novoServicoForm}>
-                            <h3>Adicionar Novo Serviço</h3>
+                            <h3>{t('analisa.addService')}</h3>
                             <form onSubmit={handleNovoServico}>
                                 <input
-                                maxLength={20}
+                                    maxLength={20}
                                     type="text"
-                                    placeholder='Nome do Serviço'
+                                    placeholder={t('analisa.serviceName')}
                                     value={nomeServico}
                                     onChange={(e) => setNomeServico(e.target.value)}
                                     required
                                 />
                                 <input
                                     type="number"
-                                    placeholder='Orçamento do Serviço'
+                                    placeholder={t('analisa.serviceBudget')}
                                     value={orcamentoServico}
                                     onChange={(e) => setOrcamentoServico(e.target.value)}
                                     required
                                 />
                                 <input
                                     type="text"
-                                    placeholder='Descrição do Serviço'
+                                    placeholder={t('analisa.serviceDescription')}
                                     value={descricaoServico}
                                     onChange={(e) => setDescricaoServico(e.target.value)}
                                     required
                                 />
                                 <div className={styles.buttonGroup}>
-                                    <button type="submit">✅ Salvar Serviço</button>
-                                    <button type="button" onClick={() => setCriarNovoS(false)}>❌ Cancelar</button>
+                                    <button type="submit">✅ {t('analisa.saveService')}</button>
+                                    <button type="button" onClick={() => setCriarNovoS(false)}>❌ {t('analisa.cancel')}</button>
                                 </div>
                             </form>
                         </div>
                     ) : (
                         <div className={styles.novoServicoForm}>
-                            <h3>Adicionar Novo Serviço</h3>
+                            <h3>{t('analisa.addService')}</h3>
                             <form onSubmit={handleNovoServico}>
                                 <input
-                                maxLength={20}
+                                    maxLength={20}
                                     type="text"
-                                    placeholder='Nome do Serviço'
+                                    placeholder={t('analisa.serviceName')}
                                     value={nomeServico}
                                     onChange={(e) => setNomeServico(e.target.value)}
                                     required
                                 />
                                 <input
                                     type="number"
-                                    placeholder='Orçamento do Serviço'
+                                    placeholder={t('analisa.serviceBudget')}
                                     value={orcamentoServico}
                                     onChange={(e) => setOrcamentoServico(e.target.value)}
                                     required
                                 />
                                 <input
                                     type="text"
-                                    placeholder='Descrição do Serviço'
+                                    placeholder={t('analisa.serviceDescription')}
                                     value={descricaoServico}
                                     onChange={(e) => setDescricaoServico(e.target.value)}
                                     required
                                 />
                                 <div className={styles.buttonGroup}>
-                                    <button type="submit">Salvar Serviço</button>
+                                    <button type="submit">{t('analisa.saveService')}</button>
                                 </div>
                             </form>
                         </div>
-
                     )}
                 </div>
             </div>
-
-
-     
+            <Rodape />
         </>
     );
 }
