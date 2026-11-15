@@ -1,16 +1,23 @@
 {
+  "$schema": "https://githubusercontent.com",
   "specVersion": "1.0",
   "host": {
-    "displayName": "COSTS",
-    "identifier": "pedroeustaqcosts.onrender.com"
+    "displayName": "COSTS - Organizador de Finanças Pessoal",
+    "identifier": "did:web:pedroeustaqcosts.onrender.com",
+    "documentationUrl": "https://onrender.com"
   },
   "entries": [
     {
-      "identifier": "urn:ai:pedroeustaqcosts.onrender.com:knowledge:llms-txt",
-      "displayName": "COSTS Knowledge Index (llms.txt)",
-      "type": "text/plain",
-      "url": "https://pedroeustaqcosts.onrender.com/llms.txt",
-      "description": "Curated index of COSTS project documentation, routes, and AI usage guidelines."
+      "identifier": "urn:ai:pedroeustaqcosts.onrender.com:site:financas-pessoais",
+      "displayName": "COSTS - Organizador de Finanças Pessoal",
+      "description": "Aplicação web para organização de finanças pessoais, controle de despesas, receitas e acompanhamento de orçamento.",
+      "mediaType": "text/html",
+      "url": "https://onrender.com",
+      "representativeQueries": [
+        "organizador de finanças pessoal",
+        "controle de gastos e orçamento",
+        "gerenciar finanças pessoais"
+      ]
     }
   ]
 }
