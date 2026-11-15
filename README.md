@@ -26,6 +26,16 @@ o projeto tem a ideia principal em ser um gerenciador de finanças pessoal, para
 
 <img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="150" alt="My Skills" />
 
+
+| # | Comando | Quando rodar | O que faz |
+|:-:|---------|--------------|-----------|
+| 1 | `npm install` | Sempre (primeira vez, ou após mudar `package.json`) | Instala o `firebase-tools` e demais dependências do projeto |
+| 2 | `npx firebase login` | Uma vez por máquina (só se ainda não estiver logado) | Autentica sua conta Google no Firebase CLI |
+| 3 | `npx firebase init emulators` | Uma vez por projeto | Configura os emuladores locais — marque **Auth**, **Firestore** e **Hosting** no wizard |
+| 4 | `npm start` | Toda vez que for testar | Sobe os emuladores e serve a aplicação em `http://localhost:5000` |
+
+---
+
 # Tutorial: How to Configure and Run the Project
 
 ## Prerequisites
