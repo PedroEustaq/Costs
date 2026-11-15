@@ -6,13 +6,13 @@ O sistema oferece funcionalidades para criar projetos, definir orçamentos, adic
 
 ## Páginas Principais
 
-- [Home](https://www.costs.com/): Página inicial com apresentação do COSTS, funcionalidades e perguntas frequentes.
-- [Projetos](https://www.costs.com/projeto): Lista, pesquisa e gerenciamento de todos os projetos cadastrados.
-- [Novo Projeto](https://www.costs.com/novo-projeto): Formulário para criar um novo projeto com nome, orçamento e categoria.
-- [Contato](https://www.costs.com/contato): Página para entrar em contato com a equipe do COSTS.
-- [Empresa](https://www.costs.com/empresa): Informações sobre a empresa, missão e valores.
+- [Home](https://www.pedroeustaqcosts.onrender.com): Página inicial com apresentação do COSTS, funcionalidades e perguntas frequentes.
+- [Projetos](https://www.pedroeustaqcosts.onrender.com/projeto): Lista, pesquisa e gerenciamento de todos os projetos cadastrados.
+- [Novo Projeto](https://www.pedroeustaqcosts.onrender.com/novo-projeto): Formulário para criar um novo projeto com nome, orçamento e categoria.
+- [Contato](https://www.pedroeustaqcosts.onrender.com/contato): Página para entrar em contato com a equipe do COSTS.
+- [Empresa](https://www.pedroeustaqcosts.onrender.com/empresa): Informações sobre a empresa, missão e valores.
 
 ## Recursos
 
-- [Análise de Projeto](https://www.costs.com/analisa/1): Página de detalhamento de um projeto, com edição de dados, adição/remoção de serviços e acompanhamento do orçamento.
-- [Perguntas Frequentes](https://www.costs.com/#faq): Dúvidas comuns sobre criação de projetos, orçamento e uso do COSTS.
+- [Análise de Projeto](https://www.pedroeustaqcosts.onrender.com/analisa/1): Página de detalhamento de um projeto, com edição de dados, adição/remoção de serviços e acompanhamento do orçamento.
+- [Perguntas Frequentes](https://www.pedroeustaqcosts.onrender.com/#faq): Dúvidas comuns sobre criação de projetos, orçamento e uso do COSTS.
