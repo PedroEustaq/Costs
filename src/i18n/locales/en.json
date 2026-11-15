@@ -123,6 +123,7 @@
     "phone": "Phone",
     "social": "Social Media",
     "socialAriaLabel": "COSTS on {{platform}} (opens in a new tab)",
-    "copyright": "© 2024 Costs. All rights reserved."
+    "copyright": "...",
+    "madeBy": "Developed by"
   }
 }

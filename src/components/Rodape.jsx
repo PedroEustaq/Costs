@@ -18,7 +18,6 @@ function Rodape() {
             <div className={style.container}>
                 <div className={style.row}>
                     <div className={style.column}>
-                        {/* ✅ h3 → h2 */}
                         <h2 className={style.title}>{t('rodape.aboutTitle')}</h2>
                         <p className={style.description}>{t('rodape.aboutText')}</p>
                     </div>
@@ -62,6 +61,19 @@ function Rodape() {
 
                 <div className={style.copyright}>
                     <p>{t('rodape.copyright')}</p>
+
+                    {/* ✅ Créditos do desenvolvedor */}
+                    <p className={style.credits}>
+                        {t('rodape.madeBy')}{' '}
+                        <a
+                            href="https://pedroeustaquio.vercel.app"
+                            className={style.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Pedro Eustaquio
+                        </a>
+                    </p>
                 </div>
             </div>
         </footer>
