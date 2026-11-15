@@ -130,6 +130,9 @@
 /* ============================================= */
 /* ==== CELULAR (até 768px) ==================== */
 /* ============================================= */
+/* ============================================= */
+/* ==== CELULAR (até 768px) ==================== */
+/* ============================================= */
 
 @media (max-width: 768px) {
 
@@ -167,20 +170,33 @@
         display: block;
     }
 
+    /* ✅ FIX: usa max-height + opacity para animar a descida/subida.
+       Sempre é display:flex (nunca display:none), então a transição funciona. */
     .menu {
-        display: none;
+        display: flex;
         width: 100%;
         flex-direction: column;
         align-items: stretch;
         gap: 8px;
         height: auto;
         background-color: #2a2a2a;
-        padding: 10px;
         border-radius: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0;
+        pointer-events: none;
+        transition:
+            max-height 0.35s ease,
+            opacity 0.25s ease,
+            padding 0.35s ease;
     }
 
-    .menuAberto {
-        display: flex;
+    .menuAberta {
+        max-height: 500px;
+        opacity: 1;
+        padding: 10px;
+        pointer-events: auto;
     }
 
     .link,

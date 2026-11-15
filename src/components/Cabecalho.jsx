@@ -1,12 +1,19 @@
 import style from "./Cabecalho.module.css"
-import { useNavigate } from 'react-router-dom'
-import { useState } from "react";
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 
 function Cabecalho() {
     const navigate = useNavigate();
+    const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const { t, i18n } = useTranslation();
+
+    // ✅ FIX: fecha o menu em QUALQUER mudança de rota
+    // (inclusive via links do Rodapé, histórico do navegador, etc.)
+    useEffect(() => {
+        setIsOpen(false);
+    }, [location.pathname]);
 
     const irPara = (rota) => {
         navigate(rota);
@@ -23,7 +30,6 @@ function Cabecalho() {
 
             <div className={style.topBar}>
                 <div className={style.logo}>
-                    {/* ✅ FIX: Removido /public/ */}
                     <img src="/COSTS.png" alt="COSTS" />
                 </div>
 
@@ -38,7 +44,9 @@ function Cabecalho() {
 
                     <button
                         className={style.botaoMenu}
-                        onClick={() => setIsOpen(!isOpen)}
+                        onClick={() => setIsOpen(prev => !prev)}
+                        aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+                        aria-expanded={isOpen}
                     >
                         {isOpen ? '✕' : '☰'}
                     </button>
@@ -46,7 +54,7 @@ function Cabecalho() {
             </div>
 
             <nav className={`${style.menu} ${isOpen ? style.menuAberta : ''}`}>
-                
+
                 <button
                     className={`${style.langButton} ${style.desktopOnly}`}
                     onClick={toggleLanguage}
