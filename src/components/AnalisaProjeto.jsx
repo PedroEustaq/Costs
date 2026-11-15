@@ -1,7 +1,7 @@
 import { useLocation, useParams } from 'react-router-dom';
 import Cabecalho from './Cabecalho';
 import Rodape from './Rodape';
-import SEO from './SEO';
+import SEO from './seo';
 import { useState, useEffect } from 'react';
 import styles from './AnalisaProjeto.module.css';
 import api from '../services/api';

@@ -1,7 +1,7 @@
 import Cabecalho from './Cabecalho'
 import './Contato.css'
 import Rodape from './Rodape'
-import SEO from './SEO'
+import SEO from './seo'
 import { useTranslation } from 'react-i18next'
 
 export default function Contato() {

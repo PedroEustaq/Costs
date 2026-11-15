@@ -1,6 +1,6 @@
 import Cabecalho from "./Cabecalho";
 import Rodape from "./Rodape";
-import SEO from "./SEO";
+import SEO from "./seo";
 import { useEffect, useState } from "react";
 import styles from "./Projeto.module.css";
 import { useNavigate } from "react-router-dom";

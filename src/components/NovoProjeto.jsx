@@ -1,7 +1,7 @@
 import ProjectForm from "../project/ProjectForm";
 import Cabecalho from "./Cabecalho";
 import Rodape from "./Rodape";
-import SEO from "./SEO";
+import SEO from "./seo";
 import styles from "./NovoProjeto.module.css";
 import { useTranslation } from 'react-i18next';
 

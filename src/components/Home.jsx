@@ -1,7 +1,7 @@
 import Cabecalho from "./Cabecalho"
 import LinkButton from "./LinkButton"
 import Rodape from "./Rodape"
-import SEO from "./SEO"
+import SEO from "./seo"
 import saveMoney from '/save-money.gif'
 import moneybag from '/money-bag.gif'
 import './Home.css'
