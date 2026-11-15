@@ -25,7 +25,8 @@
     content: "";
     position: absolute;
     inset: -15%;
-    background-image: url("/public/PlanAma.jpg");
+    /* ✅ FIX: Removido /public/ */
+    background-image: url("/PlanAma.jpg");
     background-size: cover;
     background-position: center;
     animation: slideBackground 60s linear infinite alternate;

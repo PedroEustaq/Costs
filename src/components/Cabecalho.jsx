@@ -23,11 +23,11 @@ function Cabecalho() {
 
             <div className={style.topBar}>
                 <div className={style.logo}>
-                    <img src="/public/COSTS.png" alt="COSTS" />
+                    {/* ✅ FIX: Removido /public/ */}
+                    <img src="/COSTS.png" alt="COSTS" />
                 </div>
 
                 <div className={style.topBarRight}>
-                    {/* BOTÃO DE IDIOMA (SÓ APARECE NO CELULAR) */}
                     <button
                         className={`${style.langButton} ${style.mobileOnly}`}
                         onClick={toggleLanguage}
@@ -45,9 +45,8 @@ function Cabecalho() {
                 </div>
             </div>
 
-            <nav className={`${style.menu} ${isOpen ? style.menuAberto : ''}`}>
+            <nav className={`${style.menu} ${isOpen ? style.menuAberta : ''}`}>
                 
-                {/* BOTÃO DE IDIOMA (SÓ APARECE NO COMPUTADOR) */}
                 <button
                     className={`${style.langButton} ${style.desktopOnly}`}
                     onClick={toggleLanguage}

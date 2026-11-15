@@ -113,7 +113,8 @@ export default function Projeto() {
                             ))
                         ) : (
                             <div className={styles.semContainer}>
-                                <img src="/public/folder.svg" alt="Pasta vazia" />
+                                {/* ✅ FIX: Removido /public/ */}
+                                <img src="/folder.svg" alt="Pasta vazia" />
                                 <p className={styles.naoHa}>{t('projeto.noProjects')}</p>
                             </div>
                         )}

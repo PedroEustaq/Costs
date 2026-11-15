@@ -21,16 +21,17 @@ function Home() {
                         <h2 className="subtitle">{t('home.subtitle')}</h2>
                         <div className="tarefas">
                             <div className="dentroDT">
-                                <div className="circulo"><img src="/public/pexels1.jpg" alt="" /></div> <div className="oqueCon"><h2 className="peqfrase">{t('home.task1')}</h2></div>
+                                {/* ✅ FIX: Removido /public/ */}
+                                <div className="circulo"><img src="/pexels1.jpg" alt="" /></div> <div className="oqueCon"><h2 className="peqfrase">{t('home.task1')}</h2></div>
                             </div>
                             <div className="dentroDT">
-                                <div className="circulo"><img src="/public/pexels2.jpg" alt="" /></div> <div className="oqueCon"><h2 className="peqfrase">{t('home.task2')}</h2></div>
+                                <div className="circulo"><img src="/pexels2.jpg" alt="" /></div> <div className="oqueCon"><h2 className="peqfrase">{t('home.task2')}</h2></div>
                             </div>
                             <div className="dentroDT">
-                                <div className="circulo"><img src="/public/pexels3.jpg" alt="" /></div> <div className="oqueCon"><h2 className="peqfrase">{t('home.task3')}</h2></div>
+                                <div className="circulo"><img src="/pexels3.jpg" alt="" /></div> <div className="oqueCon"><h2 className="peqfrase">{t('home.task3')}</h2></div>
                             </div>
                             <div className="dentroDT">
-                                <div className="circulo"><img src="/public/pexels4.jpg" alt="" /></div> <div className="oqueCon"><h2 className="peqfrase">{t('home.task4')}</h2></div>
+                                <div className="circulo"><img src="/pexels4.jpg" alt="" /></div> <div className="oqueCon"><h2 className="peqfrase">{t('home.task4')}</h2></div>
                             </div>
                         </div>
                         <LinkButton to="/novo-projeto" text={t('home.createProject')} />
@@ -49,22 +50,22 @@ function Home() {
                     <div className="primeiraPart">
                         <div className="filtragem">
                             <h2>{t('home.filterProjects')}</h2>
-                            <img src="/public/quadrado.png" alt="" />
-                            <img src="/public/quadradoOval.png" alt="" />
-                            <img src="/public/quadradoTriang.png" alt="" />
+                            <img src="/quadrado.png" alt="" />
+                            <img src="/quadradoOval.png" alt="" />
+                            <img src="/quadradoTriang.png" alt="" />
                         </div>
                         <div className="receita">
                             <h2>{t('home.successRecipe')}</h2>
-                            <img src="/public/shape-heart.png" alt="" />
+                            <img src="/shape-heart.png" alt="" />
                         </div>
                     </div>
                     <div className="outraParte">
                         <div className="checklist">
-                            <img src="/public/calendar.gif" alt="" />
+                            <img src="/calendar.gif" alt="" />
                             <h2>{t('home.keepFocus')}</h2>
                         </div>
                         <div className="porcentanges">
-                            <img src="/public/grafi2.png" alt="" />
+                            <img src="/grafi2.png" alt="" />
                             <h2>{t('home.trackBudget')}</h2>
                         </div>
                     </div>
