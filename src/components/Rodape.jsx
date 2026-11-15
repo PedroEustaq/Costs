@@ -1,9 +1,18 @@
 import style from './Rodape.module.css'
+import { Link } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
 
 function Rodape() {
     const { t } = useTranslation();
+
+    // Cada rede com: nome acessível, URL real (ou da plataforma) e ícone
+    const socialLinks = [
+        { name: 'Facebook',  href: 'https://facebook.com/costs',            Icon: FaFacebook },
+        { name: 'Instagram', href: 'https://instagram.com/costs',           Icon: FaInstagram },
+        { name: 'LinkedIn',  href: 'https://linkedin.com/company/costs',    Icon: FaLinkedin },
+        { name: 'Twitter',   href: 'https://twitter.com/costs',             Icon: FaTwitter },
+    ];
 
     return (
         <footer className={style.footer}>
@@ -17,10 +26,10 @@ function Rodape() {
                     <div className={style.column}>
                         <h3 className={style.title}>{t('rodape.quickLinks')}</h3>
                         <ul className={style.links}>
-                            <li><a href="#" className={style.link}>{t('rodape.home')}</a></li>
-                            <li><a href="#" className={style.link}>{t('rodape.projetos')}</a></li>
-                            <li><a href="#" className={style.link}>{t('rodape.servicos')}</a></li>
-                            <li><a href="#" className={style.link}>{t('rodape.contato')}</a></li>
+                            <li><Link to="/"             className={style.link}>{t('rodape.home')}</Link></li>
+                            <li><Link to="/projeto"      className={style.link}>{t('rodape.projetos')}</Link></li>
+                            <li><Link to="/novo-projeto" className={style.link}>{t('rodape.servicos')}</Link></li>
+                            <li><Link to="/contato"      className={style.link}>{t('rodape.contato')}</Link></li>
                         </ul>
                     </div>
 
@@ -35,10 +44,19 @@ function Rodape() {
                     <div className={style.column}>
                         <h3 className={style.title}>{t('rodape.social')}</h3>
                         <div className={style.socialLinks}>
-                            <a href="#" className={style.socialIcon}><FaFacebook /></a>
-                            <a href="#" className={style.socialIcon}><FaInstagram /></a>
-                            <a href="#" className={style.socialIcon}><FaLinkedin /></a>
-                            <a href="#" className={style.socialIcon}><FaTwitter /></a>
+                            {socialLinks.map(({ name, href, Icon }) => (
+                                <a
+                                    key={name}
+                                    href={href}
+                                    className={style.socialIcon}
+                                    aria-label={t('rodape.socialAriaLabel', { platform: name })}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {/* aria-hidden evita que o SVG seja lido junto com o label */}
+                                    <Icon aria-hidden="true" focusable="false" />
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </div>

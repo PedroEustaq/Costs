@@ -96,7 +96,7 @@
     "valueQuality": "Qualidade",
     "valueCommitment": "Compromisso"
   },
-  "rodape": {
+ "rodape": {
     "aboutTitle": "Sobre Nós",
     "aboutText": "Somos uma empresa dedicada a gerenciar seus projetos de forma eficiente e profissional.",
     "quickLinks": "Links Rápidos",
@@ -108,6 +108,7 @@
     "email": "Email",
     "phone": "Telefone",
     "social": "Redes Sociais",
+    "socialAriaLabel": "COSTS no {{platform}} (abre em nova aba)",
     "copyright": "© 2024 Costs. Todos os direitos reservados."
-  }
+}
 }
