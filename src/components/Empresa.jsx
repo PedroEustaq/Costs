@@ -1,6 +1,7 @@
 import Cabecalho from './Cabecalho'
 import './Empresa.css'
 import Rodape from './Rodape'
+import SEO from './SEO'
 import { useTranslation } from 'react-i18next'
 
 export default function Empresa() {
@@ -8,6 +9,7 @@ export default function Empresa() {
 
     return (
         <>
+            <SEO title={t('seo.empresaTitle')} description={t('seo.empresaDescription')} />
             <Cabecalho />
             <div className="empresa-container">
                 <div className="empresa-content">

@@ -1,6 +1,7 @@
 import { useLocation, useParams } from 'react-router-dom';
 import Cabecalho from './Cabecalho';
 import Rodape from './Rodape';
+import SEO from './SEO';
 import { useState, useEffect } from 'react';
 import styles from './AnalisaProjeto.module.css';
 import api from '../services/api';
@@ -12,7 +13,6 @@ export default function AnalisaProjeto() {
     const dados = location.state;
     const { t } = useTranslation();
 
-    // ✅ CORREÇÃO 1: valores iniciais seguros (aceita location.state OU null)
     const [nome, setNome] = useState(dados?.nome || "");
     const [budget, setBudget] = useState(Number(dados?.budget) || 0);
     const [categoria, setCategoria] = useState(dados?.categoria || "");
@@ -31,7 +31,6 @@ export default function AnalisaProjeto() {
         { id: 4, nome: "Infraestrutura" }
     ];
 
-    // ✅ CORREÇÃO 2: sempre busca da API (funciona com F5 / link direto / state vazio)
     useEffect(() => {
         api.get(`/projects/${id}`)
             .then(response => {
@@ -59,7 +58,6 @@ export default function AnalisaProjeto() {
                 servicos: servicosAtualizados
             })
                 .then(() => {
-                    console.log('Serviço removido com sucesso!');
                     setServicos(servicosAtualizados);
                 })
                 .catch(error => {
@@ -86,7 +84,6 @@ export default function AnalisaProjeto() {
             servicos: servicosAtualizados
         })
             .then(() => {
-                console.log('Serviço adicionado com sucesso!');
                 setServicos(servicosAtualizados);
                 setNomeServico('');
                 setOrcamentoServico('');
@@ -108,7 +105,6 @@ export default function AnalisaProjeto() {
             servicos: servicos
         })
             .then(() => {
-                console.log('Projeto atualizado com sucesso!');
                 setTaEditando(false);
             })
             .catch(error => {
@@ -116,7 +112,6 @@ export default function AnalisaProjeto() {
             });
     };
 
-    // ✅ CORREÇÃO 3: conversão para Number evita NaN/string-concat
     const totalGastoServicos = servicos.reduce((total, servico) => {
         return total + (Number(servico.orcamento) || 0);
     }, 0);
@@ -125,6 +120,7 @@ export default function AnalisaProjeto() {
 
     return (
         <>
+            <SEO title={t('seo.analisaTitle')} description={t('seo.analisaDescription')} />
             <Cabecalho />
             <div className={styles.meio}>
                 <div className={styles.container}>
@@ -169,15 +165,16 @@ export default function AnalisaProjeto() {
                             <h1 className={styles.projetoTit}>{t('analisa.projectLabel')}: {nome}</h1>
                             <h2 className={styles.catego}>{categoria}</h2>
                             <div className={styles.orcameAnalisa}>
-                                <h1 className={styles.peqDesc}>{t('analisa.totalBudget')}</h1>
+                                {/* ✅ h1 → p: era h1 desnecessário (label de valor) */}
+                                <p className={styles.peqDesc}>{t('analisa.totalBudget')}</p>
                                 <span className={styles.budget}>R$: {Number(budget).toLocaleString()}</span>
                             </div>
                             <div className={styles.orcameAnalisa}>
-                                <h1 className={styles.peqDesc}>{t('analisa.totalSpent')}</h1>
+                                <p className={styles.peqDesc}>{t('analisa.totalSpent')}</p>
                                 <span className={styles.budgetGasto}>R$: {totalGastoServicos.toLocaleString()}</span>
                             </div>
                             <div className={styles.orcameAnalisa}>
-                                <h1 className={styles.peqDesc}>{t('analisa.remaining')}</h1>
+                                <p className={styles.peqDesc}>{t('analisa.remaining')}</p>
                                 <span className={styles.budgetRestante}>R$: {orcamentoRestante.toLocaleString()}</span>
                             </div>
                             <button onClick={handleEditToggle}>{t('analisa.edit')}</button>
@@ -194,7 +191,6 @@ export default function AnalisaProjeto() {
                                 </div>
                             ) : (
                                 servicos.map((servico, index) => {
-                                    // ✅ CORREÇÃO 4: proteção contra divisão por zero e valores nulos
                                     const orc = Number(servico.orcamento) || 0;
                                     const budgetNum = Number(budget) || 0;
                                     const porcentagem = budgetNum > 0 ? (orc / budgetNum) * 100 : 0;
@@ -231,7 +227,6 @@ export default function AnalisaProjeto() {
                         </div>
                     </div>
 
-                    {/* ✅ CORREÇÃO 5: agora os dois blocos têm propósito diferente */}
                     {criarnovoS ? (
                         <div className={styles.novoServicoForm}>
                             <h3>{t('analisa.addService')}</h3>

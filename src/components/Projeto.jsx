@@ -1,5 +1,6 @@
 import Cabecalho from "./Cabecalho";
 import Rodape from "./Rodape";
+import SEO from "./SEO";
 import { useEffect, useState } from "react";
 import styles from "./Projeto.module.css";
 import { useNavigate } from "react-router-dom";
@@ -33,12 +34,7 @@ export default function Projeto() {
 
     const handleReDirectAnalisa = (id, nome, budget, categoria, servicos) => {
         navigate(`/analisa/${id}`, {
-            state: {
-                nome: nome,
-                budget: budget,
-                categoria: categoria,
-                servicos: servicos
-            }
+            state: { nome, budget, categoria, servicos }
         });
     }
 
@@ -54,6 +50,7 @@ export default function Projeto() {
 
     return (
         <>
+            <SEO title={t('seo.projetosTitle')} description={t('seo.projetosDescription')} />
             <Cabecalho />
             <div className={styles.meio}>
                 <div className={styles.centro}>
@@ -78,9 +75,9 @@ export default function Projeto() {
                             projetosFiltrados.map(obj => (
                                 <section key={obj.id} className={styles.caixa}>
                                     <div className={styles.projetoHeader}>
-                                        <h1 className={styles.projetoTitulo}>
+                                        <h2 className={styles.projetoTitulo}>
                                             {obj.nomeDoProjeto}
-                                        </h1>
+                                        </h2>
                                         <span className={styles.categoria}>
                                             {obj.categoriaDoProjeto}
                                         </span>
@@ -88,7 +85,7 @@ export default function Projeto() {
 
                                     <div className={styles.projetoInfo}>
                                         <div className={styles.orcamento}>
-                                            R$ {obj.budgetDoProjeto.toLocaleString()}
+                                            R$ {Number(obj.budgetDoProjeto).toLocaleString()}
                                         </div>
                                     </div>
 

@@ -5,6 +5,20 @@
     "empresa": "Empresa",
     "projetos": "Projetos"
   },
+  "seo": {
+    "homeTitle": "Início",
+    "homeDescription": "Gerencie seus projetos e investimentos agora! COSTS é seu organizador de finanças pessoal.",
+    "projetosTitle": "Meus Projetos",
+    "projetosDescription": "Visualize, pesquise e gerencie todos os seus projetos cadastrados no COSTS.",
+    "contatoTitle": "Contato",
+    "contatoDescription": "Entre em contato com a equipe COSTS. Estamos prontos para ajudar você.",
+    "empresaTitle": "Nossa Empresa",
+    "empresaDescription": "Conheça a empresa por trás do COSTS: nossa missão, valores e compromisso com a inovação.",
+    "novoProjetoTitle": "Novo Projeto",
+    "novoProjetoDescription": "Crie um novo projeto no COSTS e comece a gerenciar seu orçamento e serviços.",
+    "analisaTitle": "Análise de Projeto",
+    "analisaDescription": "Analise detalhes, serviços e orçamentos do projeto."
+  },
   "home": {
     "welcome": "Bem vindo ao COSTS.",
     "subtitle": "Gerencie seus projetos e investimentos agora!",
@@ -96,7 +110,7 @@
     "valueQuality": "Qualidade",
     "valueCommitment": "Compromisso"
   },
- "rodape": {
+  "rodape": {
     "aboutTitle": "Sobre Nós",
     "aboutText": "Somos uma empresa dedicada a gerenciar seus projetos de forma eficiente e profissional.",
     "quickLinks": "Links Rápidos",
@@ -110,5 +124,5 @@
     "social": "Redes Sociais",
     "socialAriaLabel": "COSTS no {{platform}} (abre em nova aba)",
     "copyright": "© 2024 Costs. Todos os direitos reservados."
-}
+  }
 }

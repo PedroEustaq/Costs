@@ -1,6 +1,7 @@
 import Cabecalho from "./Cabecalho"
 import LinkButton from "./LinkButton"
 import Rodape from "./Rodape"
+import SEO from "./SEO"
 import saveMoney from '/save-money.gif'
 import moneybag from '/money-bag.gif'
 import './Home.css'
@@ -11,6 +12,7 @@ function Home() {
 
     return (
         <>
+            <SEO title={t('seo.homeTitle')} description={t('seo.homeDescription')} />
             <Cabecalho />
             <div className='meio'>
                 <section className="primeira1">
@@ -46,24 +48,24 @@ function Home() {
                 <section className="utilidades">
                     <div className="primeiraPart">
                         <div className="filtragem">
-                            <h1>{t('home.filterProjects')}</h1>
+                            <h2>{t('home.filterProjects')}</h2>
                             <img src="/public/quadrado.png" alt="" />
                             <img src="/public/quadradoOval.png" alt="" />
                             <img src="/public/quadradoTriang.png" alt="" />
                         </div>
                         <div className="receita">
-                            <h1>{t('home.successRecipe')}</h1>
+                            <h2>{t('home.successRecipe')}</h2>
                             <img src="/public/shape-heart.png" alt="" />
                         </div>
                     </div>
                     <div className="outraParte">
                         <div className="checklist">
                             <img src="/public/calendar.gif" alt="" />
-                            <h1>{t('home.keepFocus')}</h1>
+                            <h2>{t('home.keepFocus')}</h2>
                         </div>
                         <div className="porcentanges">
                             <img src="/public/grafi2.png" alt="" />
-                            <h1>{t('home.trackBudget')}</h1>
+                            <h2>{t('home.trackBudget')}</h2>
                         </div>
                     </div>
                 </section>

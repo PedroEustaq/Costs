@@ -8,7 +8,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.form h1 {
+/* ✅ h1, h2: aplica o mesmo estilo ao h1 e aos h2 do form */
+.form h1,
+.form h2 {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 0.8rem;
@@ -17,7 +19,8 @@
     padding-left: 0.5rem;
 }
 
-.form h1::before {
+.form h1::before,
+.form h2::before {
     content: '';
     position: absolute;
     left: 0;
@@ -105,7 +108,8 @@ div.containerPreco {
         margin: 1rem;
     }
 
-    .form h1 {
+    .form h1,
+    .form h2 {
         font-size: 1.2rem;
     }
 
@@ -119,14 +123,8 @@ div.containerPreco {
 }
 
 @keyframes formFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .form {
@@ -138,19 +136,16 @@ div.containerPreco {
     background-color: #f8f8f8 !important;
     box-shadow: 0 0 0 3px rgba(225, 225, 225, 0.2) !important;
 }
-
 .budget_medium {
     border-color: #ffd700 !important;
     background-color: #fffdf0 !important;
     box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2) !important;
 }
-
 .budget_high {
     border-color: #ffa500 !important;
     background-color: #fff5e6 !important;
     box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.3) !important;
 }
-
 .budget_super {
     border-color: #ff8c00 !important;
     background-color: #fff0dd !important;
@@ -183,17 +178,9 @@ div.containerPreco {
     transform: translateY(-2px);
 }
 
-.addButton:active {
-    transform: translateY(0);
-}
+.addButton:active { transform: translateY(0); }
 
 @media (max-width: 480px) {
-    .buttonGroup {
-        flex-direction: column;
-    }
-
-    .addButton {
-        width: 100%;
-        padding: 10px;
-    }
+    .buttonGroup { flex-direction: column; }
+    .addButton { width: 100%; padding: 10px; }
 }

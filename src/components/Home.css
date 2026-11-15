@@ -1,10 +1,6 @@
 @keyframes slideBackground {
-    0% {
-        transform: translate3d(-3%, 0, 0);
-    }
-    100% {
-        transform: translate3d(3%, 0, 0);
-    }
+    0% { transform: translate3d(-3%, 0, 0); }
+    100% { transform: translate3d(3%, 0, 0); }
 }
 
 div.meio {
@@ -17,17 +13,15 @@ div.meio {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    /* Fundo estático — sem pseudo-elemento animado, sem will-change */
     background-image: url("/public/PlanAma.jpg");
     background-size: cover;
     background-position: center;
-    background-attachment: scroll; /* nunca fixed */
+    background-attachment: scroll;
 }
 
 div.meio::before {
     content: "";
     position: absolute;
-   
     background-image: url("/public/PlanAma.jpg");
     background-size: cover;
     background-position: center;
@@ -66,14 +60,11 @@ div.meio::before {
         0 0 0 2px rgba(255, 255, 255, 0.2) inset;
 }
 
-/* Efeito de brilho ao passar o mouse (GPU-friendly via transform) */
 .welcome-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
     transform: translateX(-100%);
     opacity: 0;
@@ -81,9 +72,7 @@ div.meio::before {
     pointer-events: none;
 }
 
-.welcome-section:hover::before {
-    animation: shine 1.5s infinite;
-}
+.welcome-section:hover::before { animation: shine 1.5s infinite; }
 
 .welcome-section:active {
     transform: translateY(-2px) scale(0.98);
@@ -94,20 +83,10 @@ div.meio::before {
 }
 
 @keyframes shine {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    20% {
-        opacity: 0.5;
-    }
-    80% {
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
+    0%   { transform: translateX(-100%); opacity: 0; }
+    20%  { opacity: 0.5; }
+    80%  { opacity: 0.5; }
+    100% { transform: translateX(100%); opacity: 0; }
 }
 
 .title {
@@ -120,7 +99,6 @@ div.meio::before {
     text-align: center;
     font-weight: 200;
     margin-bottom: 10px;
-    /* ✅ mantém o tamanho visual que h3 tinha (h2 padrão é maior) */
     font-size: 1.17em;
 }
 
@@ -144,17 +122,10 @@ div.meio::before {
     max-height: 400px;
 }
 
-.ladoD:hover {
-    transform: translateY(-5px);
-}
+.ladoD:hover { transform: translateY(-5px); }
 
-.money {
-    width: 50%;
-}
-
-.bag {
-    width: 50%;
-}
+.money { width: 50%; }
+.bag   { width: 50%; }
 
 .circulo {
     height: 100%;
@@ -167,10 +138,7 @@ div.meio::before {
     justify-content: center;
 }
 
-.circulo>img {
-    width: 3em;
-    border-radius: 200px;
-}
+.circulo>img { width: 3em; border-radius: 200px; }
 
 .oqueCon {
     width: 500px;
@@ -205,21 +173,9 @@ div.meio::before {
     letter-spacing: 0.8px;
 }
 
-.seuOrg {
-    font-weight: 500;
-    font-size: 30px;
-}
-
-.seuOrg span {
-    color: #33cccc;
-    font-weight: 600;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.seuOrg span:hover {
-    text-shadow: 2px 2px 4px rgba(51, 204, 204, 0.3);
-}
+.seuOrg { font-weight: 500; font-size: 30px; }
+.seuOrg span { color: #33cccc; font-weight: 600; position: relative; transition: all 0.3s ease; }
+.seuOrg span:hover { text-shadow: 2px 2px 4px rgba(51, 204, 204, 0.3); }
 
 .primeira1 {
     display: flex;
@@ -264,7 +220,8 @@ div.meio::before {
     border-bottom-left-radius: 0px;
 }
 
-.filtragem>h1 {
+/* ✅ h1 → h2 */
+.filtragem>h2 {
     padding: 20px;
     font-weight: 400;
     font-size: 25px;
@@ -276,85 +233,34 @@ div.meio::before {
     transition: transform 0.2s ease;
 }
 
-.filtragem>img:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-}
+.filtragem>img:hover { cursor: pointer; transform: scale(1.05); }
 
 @keyframes anim2 {
-    0% {
-        transform: translateX(-160px);
-        opacity: 0;
-        scale: 0.9;
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0px);
-    }
+    0%   { transform: translateX(-160px); opacity: 0; scale: 0.9; }
+    100% { opacity: 1; transform: translateX(0px); }
 }
-
 @keyframes anim3 {
-    0% {
-        scale: 0.9;
-        opacity: 0;
-        transform: translateX(-315px);
-    }
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
+    0%   { scale: 0.9; opacity: 0; transform: translateX(-315px); }
+    100% { transform: translateX(0px); opacity: 1; }
 }
-
 @keyframes anim4 {
-    0% {
-        opacity: 1;
-        transform: translateX(0px);
-        scale: 1;
-    }
-    50% {}
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
+    0%   { opacity: 1; transform: translateX(0px); scale: 1; }
+    50%  {}
+    100% { transform: translateX(0px); opacity: 1; }
 }
 
 .filtragem>img:nth-child(3) {
-    animation-name: anim2;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
+    animation: anim2 3s ease-in-out 0s 1 alternate forwards;
 }
-
 .filtragem>img:nth-child(4) {
-    animation-name: anim3;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
+    animation: anim3 3s ease-in-out 0s 1 alternate forwards;
 }
-
 .filtragem>img:nth-child(2) {
-    animation-name: anim4;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
+    animation: anim4 3s ease-in-out 0s 1 alternate forwards;
 }
 
-.filtragem>img:nth-child(2):hover {
-    transform: scale(1.08);
-}
-
-.filtragem>img:nth-child(3):hover {
-    transform: scale(1.2) rotate(10deg);
-}
+.filtragem>img:nth-child(2):hover { transform: scale(1.08); }
+.filtragem>img:nth-child(3):hover { transform: scale(1.2) rotate(10deg); }
 
 .outraParte {
     border-radius: 10px;
@@ -382,7 +288,8 @@ div.meio::before {
     overflow: hidden;
 }
 
-.checklist>h1 {
+/* ✅ h1 → h2 */
+.checklist>h2 {
     font-weight: 400;
     z-index: 99999;
     font-size: 25px;
@@ -417,21 +324,17 @@ div.meio::before {
     padding: 20px;
 }
 
-.porcentanges>h1 {
+/* ✅ h1 → h2 + font-size fixado para preservar o visual original */
+.porcentanges>h2 {
     padding: 5px;
     font-weight: 400;
+    font-size: 2em;
 }
 
 @keyframes heartbeat {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 .receita {
@@ -448,7 +351,8 @@ div.meio::before {
     border-bottom-left-radius: 10px;
 }
 
-.receita>h1 {
+/* ✅ h1 → h2 */
+.receita>h2 {
     padding: 0px;
     font-weight: 400;
     font-size: 25px;
@@ -507,7 +411,6 @@ div.meio::before {
 
 .faq-container {
     display: flex;
-    flex-direction: column;
     flex-flow: row wrap;
     gap: 25px;
     align-items: center;
@@ -524,13 +427,7 @@ div.meio::before {
     transition: all 0.3s ease;
 }
 
-.faq-item:hover {
-    cursor: default;
-}
-
-.faq-item:nth-child(even) {
-    border-left: 5px solid #33cccc;
-}
+.faq-item:nth-child(even) { border-left: 5px solid #33cccc; }
 
 .faq-item h3 {
     color: #222;
@@ -552,11 +449,9 @@ div.meio::before {
     content: '?';
     background-color: #ffbb33;
     color: #fff;
-    width: 10%;
-    height: 100%;
+    width: 10%; height: 100%;
     border-radius: 50%;
-    min-width: 40px;
-    max-width: 40px;
+    min-width: 40px; max-width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -565,13 +460,8 @@ div.meio::before {
     font-weight: bold;
 }
 
-.faq-item:nth-child(even) div::before {
-    background-color: #33cccc;
-}
-
-.faq-item:nth-child(even) h3::before {
-    background-color: #33cccc;
-}
+.faq-item:nth-child(even) div::before { background-color: #33cccc; }
+.faq-item:nth-child(even) h3::before  { background-color: #33cccc; }
 
 .faq-item p {
     color: #555;
@@ -584,49 +474,18 @@ div.meio::before {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-.faq-item:hover h3 {
-    color: #33cccc;
-}
-
-.faq-item:nth-child(even):hover h3 {
-    color: #ffbb33;
-}
+.faq-item:hover h3 { color: #33cccc; }
+.faq-item:nth-child(even):hover h3 { color: #ffbb33; }
 
 @media (max-width: 768px) {
-    .FAQs {
-        padding: 20px 15px;
-    }
-
-    .FAQs h2 {
-        font-size: 2em;
-        width: 100%;
-    }
-
-    .faq-container {
-        width: 110%;
-    }
-
-    .faq-item {
-        padding: 20px;
-        width: 100%;
-    }
-
-    .primeira1 {
-        display: flex;
-        flex-flow: column nowrap;
-    }
-
-    .welcome-section {
-        width: 80%;
-    }
-
-    .title {
-        font-size: 1.5rem;
-    }
-
-    .subtitle {
-        font-size: 13px;
-    }
+    .FAQs { padding: 20px 15px; }
+    .FAQs h2 { font-size: 2em; width: 100%; }
+    .faq-container { width: 110%; }
+    .faq-item { padding: 20px; width: 100%; }
+    .primeira1 { display: flex; flex-flow: column nowrap; }
+    .welcome-section { width: 80%; }
+    .title { font-size: 1.5rem; }
+    .subtitle { font-size: 13px; }
 
     .ladoD {
         margin-left: 0px;
@@ -643,24 +502,13 @@ div.meio::before {
         justify-content: start;
     }
 
-    .utilidades>div {
-        width: 90%;
-        margin-top: 40px;
-    }
+    .utilidades>div { width: 90%; margin-top: 40px; }
+    .outraParte { height: 430px; }
+    .checklist>img { transform: translateY(0px); }
 
-    .outraParte {
-        height: 430px;
-    }
-
-    .checklist>img {
-        transform: translateY(0px);
-    }
-
-    .checklist>h1 {
-        padding: 5px;
-    }
-
-    .porcentanges>h1 {
+    /* ✅ h1 → h2 */
+    .checklist>h2 { padding: 5px; }
+    .porcentanges>h2 {
         padding-left: 5px;
         transform: translateY(10px);
         font-size: 26px;

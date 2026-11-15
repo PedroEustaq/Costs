@@ -1,0 +1,6 @@
+# public/robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap (opcional, mas recomendado)
+# Sitemap: https://pedroeustaqcosts.onrender.com/sitemap.xml

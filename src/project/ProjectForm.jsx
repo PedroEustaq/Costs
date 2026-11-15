@@ -15,7 +15,6 @@ export default function ProjectForm() {
     const handleAddValue = (valueToAdd) => {
         const currentValue = Number(budget) || 0;
         setBudget(currentValue + valueToAdd);
-        console.log(budget)
     };
 
     const getBudgetClass = (value) => {
@@ -46,7 +45,7 @@ export default function ProjectForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (categoriaEscolhida == "" || armazenaNome == "" || budget == 0) {
+        if (categoriaEscolhida === "" || armazenaNome === "" || Number(budget) <= 0) {
             window.alert(t('novoProjeto.alertFillAll'))
             return
         }
@@ -66,68 +65,58 @@ export default function ProjectForm() {
     }
 
     return (
-        <>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <h1>{t('novoProjeto.projectName')}</h1>
+        <form className={styles.form} onSubmit={handleSubmit}>
+            <h1>{t('novoProjeto.projectName')}</h1>
+            <input
+                type="text"
+                maxLength={20}
+                placeholder={t('novoProjeto.projectNamePlaceholder')}
+                onChange={(e) => setArmazenaNome(e.target.value)}
+            />
+
+            {/* ✅ h1 → h2 */}
+            <h2>{t('novoProjeto.budget')}</h2>
+            <div className={styles.containerPreco}>
                 <input
-                    type="text"
-                    maxLength={20}
-                    placeholder={t('novoProjeto.projectNamePlaceholder')}
-                    onChange={(e) => setArmazenaNome(e.target.value)}
+                    type="number"
+                    maxLength={10}
+                    value={budget}
+                    placeholder={t('novoProjeto.budgetPlaceholder')}
+                    className={`${getBudgetClass(budget)}`}
+                    onChange={(e) => setBudget(e.target.value)}
                 />
-                <h1>{t('novoProjeto.budget')}</h1>
-                <div className={styles.containerPreco}>
-                    <input
-                        type="number"
-                        maxLength={10}
-                        value={budget}
-                        placeholder={t('novoProjeto.budgetPlaceholder')}
-                        className={`${getBudgetClass(budget)}`}
-                        onChange={(e) => setBudget(e.target.value)}
-                    />
-                    <div className={styles.buttonGroup}>
-                        <button
-                            type="button"
-                            onClick={() => handleAddValue(10)}
-                            className={styles.addButton}
-                        >
-                            +R$10
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => handleAddValue(100)}
-                            className={styles.addButton}
-                        >
-                            +R$100
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => handleAddValue(500)}
-                            className={styles.addButton}
-                        >
-                            +R$500
-                        </button>
-                    </div>
+                <div className={styles.buttonGroup}>
+                    <button type="button" onClick={() => handleAddValue(10)} className={styles.addButton}>
+                        +R$10
+                    </button>
+                    <button type="button" onClick={() => handleAddValue(100)} className={styles.addButton}>
+                        +R$100
+                    </button>
+                    <button type="button" onClick={() => handleAddValue(500)} className={styles.addButton}>
+                        +R$500
+                    </button>
                 </div>
-                <h1>{t('novoProjeto.selectCategory')}</h1>
+            </div>
 
-                <div>
-                    <select
-                        value={categoriaEscolhida}
-                        onChange={handleCategoriaChange}
-                        className={styles.select_categoria}
-                    >
-                        <option>{t('novoProjeto.selectCategoryPlaceholder')}</option>
-                        {categorias.map((categoria) => (
-                            <option key={categoria.id} value={categoria.nome}>
-                                {categoria.nome}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+            {/* ✅ h1 → h2 */}
+            <h2>{t('novoProjeto.selectCategory')}</h2>
 
-                <input type="submit" value={t('novoProjeto.submit')} />
-            </form>
-        </>
+            <div>
+                <select
+                    value={categoriaEscolhida}
+                    onChange={handleCategoriaChange}
+                    className={styles.select_categoria}
+                >
+                    <option value="">{t('novoProjeto.selectCategoryPlaceholder')}</option>
+                    {categorias.map((categoria) => (
+                        <option key={categoria.id} value={categoria.nome}>
+                            {categoria.nome}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <input type="submit" value={t('novoProjeto.submit')} />
+        </form>
     )
 }
