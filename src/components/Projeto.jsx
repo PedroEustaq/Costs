@@ -52,76 +52,77 @@ export default function Projeto() {
         <>
             <SEO title={t('seo.projetosTitle')} description={t('seo.projetosDescription')} />
             <Cabecalho />
-            <div className={styles.meio}>
-                <div className={styles.centro}>
-                    <div className={styles.containerPesq}>
-                        <input
-                            type="text"
-                            className={styles.pesqFiltra}
-                            placeholder={t('projeto.search')}
-                            value={termoPesquisa}
-                            onChange={(e) => setTermoPesquisa(e.target.value)}
-                        />
-                        <button onClick={handlePesquisa}>{t('projeto.searchBtn')}</button>
-                        <button
-                            className={styles.outroBTN}
-                            onClick={() => navigate('/novo-projeto')}
-                        >
-                            {t('projeto.createBtn')}
-                        </button>
-                    </div>
-                    <div className={styles.flexProjeto}>
-                        {projetosFiltrados.length > 0 ? (
-                            projetosFiltrados.map(obj => (
-                                <section key={obj.id} className={styles.caixa}>
-                                    <div className={styles.projetoHeader}>
-                                        <h2 className={styles.projetoTitulo}>
-                                            {obj.nomeDoProjeto}
-                                        </h2>
-                                        <span className={styles.categoria}>
-                                            {obj.categoriaDoProjeto}
-                                        </span>
-                                    </div>
-
-                                    <div className={styles.projetoInfo}>
-                                        <div className={styles.orcamento}>
-                                            R$ {Number(obj.budgetDoProjeto).toLocaleString()}
+            {/* ✅ FIX: Envolvido com <main> */}
+            <main>
+                <div className={styles.meio}>
+                    <div className={styles.centro}>
+                        <div className={styles.containerPesq}>
+                            <input
+                                type="text"
+                                className={styles.pesqFiltra}
+                                placeholder={t('projeto.search')}
+                                value={termoPesquisa}
+                                onChange={(e) => setTermoPesquisa(e.target.value)}
+                            />
+                            <button onClick={handlePesquisa}>{t('projeto.searchBtn')}</button>
+                            <button
+                                className={styles.outroBTN}
+                                onClick={() => navigate('/novo-projeto')}
+                            >
+                                {t('projeto.createBtn')}
+                            </button>
+                        </div>
+                        <div className={styles.flexProjeto}>
+                            {projetosFiltrados.length > 0 ? (
+                                projetosFiltrados.map(obj => (
+                                    <section key={obj.id} className={styles.caixa}>
+                                        <div className={styles.projetoHeader}>
+                                            <h2 className={styles.projetoTitulo}>
+                                                {obj.nomeDoProjeto}
+                                            </h2>
+                                            <span className={styles.categoria}>
+                                                {obj.categoriaDoProjeto}
+                                            </span>
                                         </div>
-                                    </div>
 
-                                    <div className={styles.botoesContainer}>
-                                        <button
-                                            className={styles.btnEditar}
-                                            onClick={() => handleReDirectAnalisa(
-                                                obj.id,
-                                                obj.nomeDoProjeto,
-                                                obj.budgetDoProjeto,
-                                                obj.categoriaDoProjeto,
-                                                obj.servicos
-                                            )}
-                                        >
-                                            {t('projeto.edit')}
-                                        </button>
-                                        <button
-                                            className={styles.btnExcluir}
-                                            onClick={() => deletarServico(obj.id)}
-                                        >
-                                            {t('projeto.delete')}
-                                        </button>
-                                    </div>
-                                </section>
-                            ))
-                        ) : (
-                            <div className={styles.semContainer}>
-                                {/* ✅ FIX: Removido /public/ */}
-                                <img src="/folder.svg" alt="Pasta vazia" />
-                                <p className={styles.naoHa}>{t('projeto.noProjects')}</p>
-                            </div>
-                        )}
+                                        <div className={styles.projetoInfo}>
+                                            <div className={styles.orcamento}>
+                                                R$ {Number(obj.budgetDoProjeto).toLocaleString()}
+                                            </div>
+                                        </div>
+
+                                        <div className={styles.botoesContainer}>
+                                            <button
+                                                className={styles.btnEditar}
+                                                onClick={() => handleReDirectAnalisa(
+                                                    obj.id,
+                                                    obj.nomeDoProjeto,
+                                                    obj.budgetDoProjeto,
+                                                    obj.categoriaDoProjeto,
+                                                    obj.servicos
+                                                )}
+                                            >
+                                                {t('projeto.edit')}
+                                            </button>
+                                            <button
+                                                className={styles.btnExcluir}
+                                                onClick={() => deletarServico(obj.id)}
+                                            >
+                                                {t('projeto.delete')}
+                                            </button>
+                                        </div>
+                                    </section>
+                                ))
+                            ) : (
+                                <div className={styles.semContainer}>
+                                    <img src="/folder.svg" alt="Pasta vazia" />
+                                    <p className={styles.naoHa}>{t('projeto.noProjects')}</p>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            </main>
             <Rodape />
         </>
     )

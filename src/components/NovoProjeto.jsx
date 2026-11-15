@@ -12,9 +12,12 @@ export default function NovoProjeto() {
         <div>
             <SEO title={t('seo.novoProjetoTitle')} description={t('seo.novoProjetoDescription')} />
             <Cabecalho />
-            <div className={styles.meio}>
-                <ProjectForm />
-            </div>
+            
+            <main>
+                <div className={styles.meio}>
+                    <ProjectForm />
+                </div>
+            </main>
             <Rodape />
         </div>
     )
