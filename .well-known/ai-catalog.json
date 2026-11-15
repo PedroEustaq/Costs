@@ -1,0 +1,16 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "COSTS",
+    "identifier": "pedroeustaqcosts.onrender.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:ai:pedroeustaqcosts.onrender.com:knowledge:llms-txt",
+      "displayName": "COSTS Knowledge Index (llms.txt)",
+      "type": "text/plain",
+      "url": "https://pedroeustaqcosts.onrender.com/llms.txt",
+      "description": "Curated index of COSTS project documentation, routes, and AI usage guidelines."
+    }
+  ]
+}
