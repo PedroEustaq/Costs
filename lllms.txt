@@ -1,0 +1,18 @@
+# COSTS
+
+> COSTS é um organizador de finanças pessoal que permite gerenciar projetos, orçamentos e investimentos de forma simples e eficiente.
+
+O sistema oferece funcionalidades para criar projetos, definir orçamentos, adicionar serviços e acompanhar os gastos em tempo real, com suporte a português e inglês.
+
+## Páginas Principais
+
+- [Home](https://www.costs.com/): Página inicial com apresentação do COSTS, funcionalidades e perguntas frequentes.
+- [Projetos](https://www.costs.com/projeto): Lista, pesquisa e gerenciamento de todos os projetos cadastrados.
+- [Novo Projeto](https://www.costs.com/novo-projeto): Formulário para criar um novo projeto com nome, orçamento e categoria.
+- [Contato](https://www.costs.com/contato): Página para entrar em contato com a equipe do COSTS.
+- [Empresa](https://www.costs.com/empresa): Informações sobre a empresa, missão e valores.
+
+## Recursos
+
+- [Análise de Projeto](https://www.costs.com/analisa/1): Página de detalhamento de um projeto, com edição de dados, adição/remoção de serviços e acompanhamento do orçamento.
+- [Perguntas Frequentes](https://www.costs.com/#faq): Dúvidas comuns sobre criação de projetos, orçamento e uso do COSTS.
