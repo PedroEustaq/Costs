@@ -120,6 +120,8 @@ div.meio::before {
     text-align: center;
     font-weight: 200;
     margin-bottom: 10px;
+    /* ✅ mantém o tamanho visual que h3 tinha (h2 padrão é maior) */
+    font-size: 1.17em;
 }
 
 .ladoD {

@@ -16,7 +16,7 @@ function Home() {
                 <section className="primeira1">
                     <section className="welcome-section">
                         <h1 className="title">{t('home.welcome')}</h1>
-                        <h3 className="subtitle">{t('home.subtitle')}</h3>
+                        <h2 className="subtitle">{t('home.subtitle')}</h2>
                         <div className="tarefas">
                             <div className="dentroDT">
                                 <div className="circulo"><img src="/public/pexels1.jpg" alt="" /></div> <div className="oqueCon"><h2 className="peqfrase">{t('home.task1')}</h2></div>
@@ -32,13 +32,11 @@ function Home() {
                             </div>
                         </div>
                         <LinkButton to="/novo-projeto" text={t('home.createProject')} />
-
                     </section>
                     <section className='ladoD'>
                         <div className="seuOrg">
                             {t('home.organizer')} <span>{t('home.personal')}</span>
                         </div>
-
                         <div>
                             <img src={saveMoney} alt="" className="money" />
                             <img src={moneybag} alt="" className="bag" />
@@ -108,7 +106,6 @@ function Home() {
                         </div>
                     </div>
                 </section>
-
             </div>
             <Rodape />
         </>

@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next'
 function Rodape() {
     const { t } = useTranslation();
 
-    // Cada rede com: nome acessível, URL real (ou da plataforma) e ícone
     const socialLinks = [
         { name: 'Facebook',  href: 'https://facebook.com/costs',            Icon: FaFacebook },
         { name: 'Instagram', href: 'https://instagram.com/costs',           Icon: FaInstagram },
@@ -19,12 +18,13 @@ function Rodape() {
             <div className={style.container}>
                 <div className={style.row}>
                     <div className={style.column}>
-                        <h3 className={style.title}>{t('rodape.aboutTitle')}</h3>
+                        {/* ✅ h3 → h2 */}
+                        <h2 className={style.title}>{t('rodape.aboutTitle')}</h2>
                         <p className={style.description}>{t('rodape.aboutText')}</p>
                     </div>
 
                     <div className={style.column}>
-                        <h3 className={style.title}>{t('rodape.quickLinks')}</h3>
+                        <h2 className={style.title}>{t('rodape.quickLinks')}</h2>
                         <ul className={style.links}>
                             <li><Link to="/"             className={style.link}>{t('rodape.home')}</Link></li>
                             <li><Link to="/projeto"      className={style.link}>{t('rodape.projetos')}</Link></li>
@@ -34,7 +34,7 @@ function Rodape() {
                     </div>
 
                     <div className={style.column}>
-                        <h3 className={style.title}>{t('rodape.contact')}</h3>
+                        <h2 className={style.title}>{t('rodape.contact')}</h2>
                         <p className={style.contactInfo}>
                             {t('rodape.email')}: contato@costs.com<br />
                             {t('rodape.phone')}: (11) 56921-1452<br />
@@ -42,7 +42,7 @@ function Rodape() {
                     </div>
 
                     <div className={style.column}>
-                        <h3 className={style.title}>{t('rodape.social')}</h3>
+                        <h2 className={style.title}>{t('rodape.social')}</h2>
                         <div className={style.socialLinks}>
                             {socialLinks.map(({ name, href, Icon }) => (
                                 <a
@@ -53,7 +53,6 @@ function Rodape() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {/* aria-hidden evita que o SVG seja lido junto com o label */}
                                     <Icon aria-hidden="true" focusable="false" />
                                 </a>
                             ))}
