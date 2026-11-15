@@ -30,7 +30,7 @@ function Cabecalho() {
 
             <div className={style.topBar}>
                 <div className={style.logo}>
-                    <img src="/COSTS.png" alt="COSTS" />
+                    <img src="/COSTS_logoB.svg" alt="COSTS" />
                 </div>
 
                 <div className={style.topBarRight}>
