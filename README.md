@@ -1,3 +1,41 @@
+<div align="center">
+  
+  ![EclairWeb](public/COSTS_logo.svg)
+
+</div>
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,vite" width="150" alt="My Skills" />
+  </a>
+</p>
+
+
+Esse é um projeto que eu desenvolvi fazendo o curso do Matheus Battisti (Hora de codar) , no curso dá pra aprender dele dá pra aprender muitos conceitos como:
+o básico de react, aprender a criar aplicações
+modulação de arquivos e organização de pastas,
+Criação da <sua_propria> tag do html! (er.. no caso classes e componentes para evitar repetição de código)
+Como funciona um servidor, builds, deploys e segurança frontend e backend no geral.
+Requisições GET POST PUT etc no react.
+Usar npm pra instalar qualquer biblioteca da familia npm e usar no seu projeto.
+Aprender a criar um jsx. (mistura de JS e html)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yEhuRXccoGE?si=Zo7BlAVTeBENZ3W5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+o projeto tem a ideia principal em ser um gerenciador de finanças pessoal, para pessoas que não conseguem controlar o seus gastos, ou controlar CADA pedaço dele.
+
+<img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="150" alt="My Skills" />
+
+
+| # | Comando | Quando rodar | O que faz |
+|:-:|---------|--------------|-----------|
+| 1 | `npm install` | Sempre (primeira vez, ou após mudar `package.json`) | Instala o `firebase-tools` e demais dependências do projeto |
+| 2 | `npx firebase login` | Uma vez por máquina (só se ainda não estiver logado) | Autentica sua conta Google no Firebase CLI |
+| 3 | `npx firebase init emulators` | Uma vez por projeto | Configura os emuladores locais — marque **Auth**, **Firestore** e **Hosting** no wizard |
+| 4 | `npm start` | Toda vez que for testar | Sobe os emuladores e serve a aplicação em `http://localhost:5000` |
+
+---
+
 # Tutorial: How to Configure and Run the Project
 
 ## Prerequisites
