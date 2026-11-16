@@ -11,11 +11,14 @@
 </p>
 
 
-<img src="https://tenor.com/pt-BR/view/no-sé-pocoyo-ni-idea-no-tengo-idea-idk-gif-914424621907159606" width="200" align="right">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa1TzFAko_Ccqwylqn6J_8Y5xAqK8FqzreQdegz5ZWaB_2yjxWcRmRjSo&s=10" width="200" align="right">
+<a href="https://google.com" target="_blank">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa1TzFAko_Ccqwylqn6J_8Y5xAqK8FqzreQdegz5ZWaB_2yjxWcRmRjSo&s=10"
+       width="300"
+       align="right"
+       alt="Imagem clicável">
+</a>
 
 Esse é um projeto que eu desenvolvi fazendo o curso do Matheus Battisti (Hora de Codar).No curso, dá pra aprender a linguagem react e muitos conceitos, como:
-
 
 
 - o básico de React e como criar aplicações;
@@ -27,6 +30,7 @@ Esse é um projeto que eu desenvolvi fazendo o curso do Matheus Battisti (Hora d
 - aprender a criar JSX, que é a mistura de JavaScript com HTML.
 
 
+---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yEhuRXccoGE?si=Zo7BlAVTeBENZ3W5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
