@@ -43,6 +43,8 @@ o projeto tem a ideia principal em ser um gerenciador de finanças pessoal, para
 <img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="150" alt="My Skills" />
 
 
+<img src="https://images.openai.com/static-rsc-4/Uoi15fOtIAaDsYGCizovm39HnYKrW7pJMjRy_Fx9-Kl5yxj9ly2AleydwlLOocK6h1bFo8riohVEnbaLuSYWLkFboiI9he_Slk_XXM4K_GlQ5VSiSicz6HwDTNdNi1KRc8-7uMzsGhAioDJi5pWKJDzTmipc6ylc8aJZijqXr4iSMCgF_Vjvx4pF6FigiT2D?purpose=fullsize" width="150" alt="My Skills" />
+
 | # | Comando | Quando rodar | O que faz |
 |:-:|---------|--------------|-----------|
 | 1 | `npm install` | Sempre (primeira vez, ou após mudar `package.json`) | Instala o `firebase-tools` e demais dependências do projeto |
