@@ -11,14 +11,27 @@
 </p>
 
 
-Esse é um projeto que eu desenvolvi fazendo o curso do Matheus Battisti (Hora de codar) , no curso dá pra aprender dele dá pra aprender muitos conceitos como:
-o básico de react, aprender a criar aplicações
-modulação de arquivos e organização de pastas,
-Criação da <sua_propria> tag do html! (er.. no caso classes e componentes para evitar repetição de código)
-Como funciona um servidor, builds, deploys e segurança frontend e backend no geral.
-Requisições GET POST PUT etc no react.
-Usar npm pra instalar qualquer biblioteca da familia npm e usar no seu projeto.
-Aprender a criar um jsx. (mistura de JS e html)
+<a href="https://google.com" target="_blank">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa1TzFAko_Ccqwylqn6J_8Y5xAqK8FqzreQdegz5ZWaB_2yjxWcRmRjSo&s=10"
+       width="300"
+       align="right"
+       alt="Imagem clicável">
+</a>
+
+Esse é um projeto que eu desenvolvi fazendo o curso do Matheus Battisti (Hora de Codar).No curso, dá pra aprender a linguagem react e muitos conceitos, como:
+
+
+- o básico de React e como criar aplicações;
+- modulação de arquivos e organização de pastas;
+- criação dos seus próprios componentes, que funcionam como “tags” personalizadas, pra evitar repetição de código;
+- como funciona um servidor, builds, deploys e segurança frontend e backend no geral;
+- requisições GET, POST, PUT etc. no React;
+- usar o npm pra instalar bibliotecas do ecossistema npm e aplicá-las no projeto;
+- aprender a criar JSX, que é a mistura de JavaScript com HTML.
+
+
+---
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yEhuRXccoGE?si=Zo7BlAVTeBENZ3W5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
