@@ -58,7 +58,42 @@ Componentes: Dividem a aplicação em pequenos blocos reutilizáveis, facilitand
   <img src="public/Rodape.jpg" width="250" alt="Rodapé"/>
   <img src="public/Sidebar.jpg" width="250" alt="Sidebar"/>
 </div>
-Multiplataforma: além de aplicações web, seu ecossistema permite desenvolver aplicações mobile com React Native.
+
+Hooks & State Management: gerenciamento de estado, ciclo de vida e lógica dos componentes.
+
+---
+
+<img src="public/useState.jpg" width="250" alt="Sidebar" align="right"/>
+
+State (useState): representa a memória do componente, onde ele guarda informações, como nome, contador ou tema.
+
+<br>
+<br>
+<br>
+<br>
+
+---
+
+<img src="public/useState.jpg" width="250" alt="Sidebar" align="right"/>
+
+Hooks (useEffect): permitem executar ações em determinados momentos, como buscar dados de uma API quando um componente aparece.
+
+
+<br>
+<br>
+<br>
+<br>
+
+---
+
+<img src="public/useState.jpg" width="250" alt="Sidebar" align="right"/>
+
+State (useState): representa a memória do componente, onde ele guarda informações, como nome, contador ou tema.
+
+<br>
+<br>
+<br>
+<br>
 
 Flexibilidade: pode ser integrado a projetos existentes, não sendo necessário construir uma aplicação inteira com React.
 
