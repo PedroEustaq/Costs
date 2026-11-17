@@ -53,9 +53,11 @@ Além de funções essenciais como:
 
 Componentes: Dividem a aplicação em pequenos blocos reutilizáveis, facilitando a organização e evitando repetição de código.
 
-<img src="public/Cabecalho.jpg" width="250" alt="My Skills"/>
-<img src="public/Rodape.jpg" width="250" alt="My Skills" align="right"/>
-<img src="public/Rodape.jpg" width="250" alt="My Skills" align="right"/>
+<div align="center">
+  <img src="public/Cabecalho.jpg" width="250" alt="Cabeçalho"/>
+  <img src="public/Rodape.jpg" width="250" alt="Rodapé"/>
+  <img src="public/Sidebar.jpg" width="250" alt="Sidebar"/>
+</div>
 Multiplataforma: além de aplicações web, seu ecossistema permite desenvolver aplicações mobile com React Native.
 
 Flexibilidade: pode ser integrado a projetos existentes, não sendo necessário construir uma aplicação inteira com React.
