@@ -98,7 +98,10 @@ State (useState): representa a memória do componente, onde ele guarda informaç
 Flexibilidade: pode ser integrado a projetos existentes, não sendo necessário construir uma aplicação inteira com React.
 
 
-
+---
+<div align="center">
+<img src="public/ProjetoIMG.png" width="150" alt="My Skills" />
+</div>
 o projeto tem a ideia principal em ser um gerenciador de finanças pessoal, para pessoas que não conseguem controlar o seus gastos, ou controlar CADA pedaço dele.
 
 <img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="150" alt="My Skills" />
