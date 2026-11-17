@@ -38,9 +38,13 @@ Esse é um projeto que eu desenvolvi fazendo o curso do Matheus Battisti (Hora d
 <img src="public/reactBordabranca.jpg" width="150" alt="My Skills" align="right" />
 O React é uma biblioteca JavaScript usada para criar interfaces de sites e aplicações de forma dinâmica e organizada.
 <br>
-A ideia principal é juntar HTML + JavaScript = JSX, onde no JSX permite escrever uma estrutura parecida com HTML dentro do JavaScript, misturando a construção visual com a lógica da aplicação.
-Além de funções essenciais como:
+<br>
+A ideia principal é juntar HTML + JavaScript = JSX, onde no JSX permite escrever uma estrutura parecida com HTML DENTRO do JavaScript, misturando a construção visual com a lógica da aplicação.
+<br>
 
+---
+
+Além de funções essenciais como:
 
 Componentes: Dividem a aplicação em pequenos blocos reutilizáveis, facilitando a organização e evitando repetição de código.
 
