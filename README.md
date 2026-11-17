@@ -42,12 +42,20 @@ O React é uma biblioteca JavaScript usada para criar interfaces de sites e apli
 A ideia principal é juntar HTML + JavaScript = JSX, onde no JSX permite escrever uma estrutura parecida com HTML DENTRO do JavaScript, misturando a construção visual com a lógica da aplicação.
 <br>
 
+<br>
+<br>
+<br>
+<br>
+
 ---
 
 Além de funções essenciais como:
 
 Componentes: Dividem a aplicação em pequenos blocos reutilizáveis, facilitando a organização e evitando repetição de código.
 
+<img src="public/Cabecalho.jpg" width="250" alt="My Skills"/>
+<img src="public/Rodape.jpg" width="250" alt="My Skills" align="right"/>
+<img src="public/Rodape.jpg" width="250" alt="My Skills" align="right"/>
 Multiplataforma: além de aplicações web, seu ecossistema permite desenvolver aplicações mobile com React Native.
 
 Flexibilidade: pode ser integrado a projetos existentes, não sendo necessário construir uma aplicação inteira com React.
