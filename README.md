@@ -35,7 +35,19 @@ Esse é um projeto que eu desenvolvi fazendo o curso do Matheus Battisti (Hora d
   <img src="public/GoldReact.png" width="250" alt="EclairWeb">
 </div>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yEhuRXccoGE?si=Zo7BlAVTeBENZ3W5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<img src="public/reactBordabranca.jpg" width="150" alt="My Skills" align="right" />
+O React é uma biblioteca JavaScript usada para criar interfaces de sites e aplicações de forma dinâmica e organizada.
+<br>
+A ideia principal é juntar HTML + JavaScript = JSX, onde no JSX permite escrever uma estrutura parecida com HTML dentro do JavaScript, misturando a construção visual com a lógica da aplicação.
+Além de funções essenciais como:
+
+
+Componentes: Dividem a aplicação em pequenos blocos reutilizáveis, facilitando a organização e evitando repetição de código.
+
+Multiplataforma: além de aplicações web, seu ecossistema permite desenvolver aplicações mobile com React Native.
+
+Flexibilidade: pode ser integrado a projetos existentes, não sendo necessário construir uma aplicação inteira com React.
+
 
 
 o projeto tem a ideia principal em ser um gerenciador de finanças pessoal, para pessoas que não conseguem controlar o seus gastos, ou controlar CADA pedaço dele.
@@ -43,7 +55,7 @@ o projeto tem a ideia principal em ser um gerenciador de finanças pessoal, para
 <img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="150" alt="My Skills" />
 
 
-<img src="https://images.openai.com/static-rsc-4/Uoi15fOtIAaDsYGCizovm39HnYKrW7pJMjRy_Fx9-Kl5yxj9ly2AleydwlLOocK6h1bFo8riohVEnbaLuSYWLkFboiI9he_Slk_XXM4K_GlQ5VSiSicz6HwDTNdNi1KRc8-7uMzsGhAioDJi5pWKJDzTmipc6ylc8aJZijqXr4iSMCgF_Vjvx4pF6FigiT2D?purpose=fullsize" width="150" alt="My Skills" />
+
 
 | # | Comando | Quando rodar | O que faz |
 |:-:|---------|--------------|-----------|
