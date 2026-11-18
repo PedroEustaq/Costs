@@ -41,8 +41,6 @@ O React é uma biblioteca JavaScript usada para criar interfaces de sites e apli
 <br>
 A ideia principal é juntar HTML + JavaScript = JSX, onde no JSX permite escrever uma estrutura parecida com HTML DENTRO do JavaScript, misturando a construção visual com a lógica da aplicação.
 <br>
-
-<br>
 <br>
 <br>
 <br>
