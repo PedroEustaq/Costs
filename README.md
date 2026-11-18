@@ -56,8 +56,6 @@ Componentes: Dividem a aplicação em pequenos blocos reutilizáveis, facilitand
   <img src="public/Sidebar.jpg" width="250" alt="Sidebar"/>
 </div>
 
-Hooks & State Management: gerenciamento de estado, ciclo de vida e lógica dos componentes.
-
 ---
 
 <img src="public/useState.jpg" width="250" alt="Sidebar" align="right"/>
