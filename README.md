@@ -44,9 +44,9 @@ A ideia principal é juntar HTML + JavaScript = JSX, onde no JSX permite escreve
 <br>
 <br>
 
----
-
 Além de funções essenciais como:
+
+---
 
 Componentes: Dividem a aplicação em pequenos blocos reutilizáveis, facilitando a organização e evitando repetição de código.
 
