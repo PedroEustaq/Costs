@@ -90,9 +90,6 @@ State (useState): representa a memória do componente, onde ele guarda informaç
 <br>
 <br>
 
-Flexibilidade: pode ser integrado a projetos existentes, não sendo necessário construir uma aplicação inteira com React.
-
-
 ---
 <div align="center">
 <img src="public/ProjetoIMG.png" width="150" alt="My Skills" />
