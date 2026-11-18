@@ -170,8 +170,8 @@ The main idea is to combine HTML + JavaScript = JSX, where JSX lets you write an
 Components: They split the application into small reusable blocks, making organization easier and avoiding code repetition.
 
 <div align="center">
-  <img src="public/Header.jpg" width="250" alt="Header"/>
-  <img src="public/Footer.jpg" width="250" alt="Footer"/>
+  <img src="public/Cabecalho.jpg" width="250" alt="Header"/>
+  <img src="public/Rodape.jpg" width="250" alt="Footer"/>
   <img src="public/Sidebar.jpg" width="250" alt="Sidebar"/>
 </div>
 
