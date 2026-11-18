@@ -102,9 +102,15 @@ Flexibilidade: pode ser integrado a projetos existentes, não sendo necessário 
 <div align="center">
 <img src="public/ProjetoIMG.png" width="150" alt="My Skills" />
 </div>
-o projeto tem a ideia principal em ser um gerenciador de finanças pessoal, para pessoas que não conseguem controlar o seus gastos, ou controlar CADA pedaço dele.
 
-<img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="150" alt="My Skills" />
+<img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="250" alt="My Skills" align="right" />
+Um gerenciador de finanças pessoais pra quem vive no limite do cartão (ou só quer parar de viver) e finalmente saber pra onde cada centavo foi.
+<br>
+<br>
+
+O projeto conta com uma aba onde você registra os seus gastos, e pode adicionar ou remover na hora, sem planilha perdida.
+
+Tudo fica salvo via API, então nada some quando você recarrega a página. (a não ser a versão online por segurança)
 
 
 
