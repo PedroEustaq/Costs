@@ -71,9 +71,6 @@ State (useState): representa a memória do componente, onde ele guarda informaç
 
 Hooks (useEffect): permitem executar ações em determinados momentos, como buscar dados de uma API quando um componente aparece.
 
-
-<br>
-<br>
 <br>
 <br>
 
