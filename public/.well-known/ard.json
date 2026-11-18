@@ -1,0 +1,16 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "COSTS - Organizador de Finanças Pessoal",
+    "identifier": "pedroeustaqcosts.vercel.app"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:pedroeustaqcosts.vercel.app:site:financas-pessoais",
+      "displayName": "COSTS - Organizador de Finanças Pessoal",
+      "type": "text/html",
+      "url": "https://pedroeustaqcosts.vercel.app/",
+      "description": "COSTS: seu organizador de finanças pessoal. Gerencie projetos, orçamentos e investimentos de forma simples e eficiente."
+    }
+  ]
+}

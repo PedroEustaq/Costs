@@ -3,16 +3,16 @@
   "specVersion": "1.0",
   "host": {
     "displayName": "COSTS - Organizador de Finanças Pessoal",
-    "identifier": "did:web:pedroeustaqcosts.onrender.com",
-    "documentationUrl": "https://onrender.com"
+    "identifier": "did:web:pedroeustaqcosts.vercel.app",
+    "documentationUrl": "https://vercel.com"
   },
   "entries": [
     {
-      "identifier": "urn:ai:pedroeustaqcosts.onrender.com:site:financas-pessoais",
+      "identifier": "urn:ai:pedroeustaqcosts.vercel.app:site:financas-pessoais",
       "displayName": "COSTS - Organizador de Finanças Pessoal",
       "description": "Aplicação web para organização de finanças pessoais, controle de despesas, receitas e acompanhamento de orçamento.",
       "mediaType": "text/html",
-      "url": "https://onrender.com",
+      "url": "https://pedroeustaqcosts.vercel.app",
       "representativeQueries": [
         "organizador de finanças pessoal",
         "controle de gastos e orçamento",
