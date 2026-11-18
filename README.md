@@ -209,7 +209,7 @@ React Rendering: it represents the process of creating and updating the interfac
 ---
 
 <div align="center">
-<img src="public/ProjetoIMG.png" width="150" alt="My Skills" />
+<img src="public/ProjectIMG.png" width="150" alt="My Skills" />
 </div>
 
 <img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="200" alt="My Skills" align="right" />
@@ -224,7 +224,7 @@ Everything is saved through the API, so nothing disappears when you reload the p
 ---
 
 <div align="center">
-<img src="public/runProject.png" width="150" alt="My Skills" />
+<img src="public/Run.png" width="110" alt="My Skills" />
 </div>
 
 | # | Command | When to run it | What it does |
