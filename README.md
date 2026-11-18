@@ -102,7 +102,7 @@ Tudo fica salvo via API, então nada some quando você recarrega a página. (a n
 ---
 
 <div align="center">
-<img src="public/RodarProjeto.png" width="180" alt="My Skills" />
+<img src="public/RodarProjeto.png" width="150" alt="My Skills" />
 </div>
 
 | # | Comando | Quando rodar | O que faz |
