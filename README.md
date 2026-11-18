@@ -64,7 +64,6 @@ State (useState): representa a memória do componente, onde ele guarda informaç
 
 <br>
 <br>
-<br>
 
 ---
 
