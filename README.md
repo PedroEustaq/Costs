@@ -43,7 +43,6 @@ A ideia principal é juntar HTML + JavaScript = JSX, onde no JSX permite escreve
 <br>
 <br>
 <br>
-<br>
 
 ---
 
