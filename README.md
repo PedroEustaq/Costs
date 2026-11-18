@@ -44,7 +44,7 @@ A ideia principal é juntar HTML + JavaScript = JSX, onde no JSX permite escreve
 <br>
 
 <details>
-<summary><strong>Além de funções essenciais como:</strong></summary>
+<summary><strong>Algumas funções essenciais do React..</strong></summary>
 
 ---
 
