@@ -103,7 +103,7 @@ Flexibilidade: pode ser integrado a projetos existentes, não sendo necessário 
 <img src="public/ProjetoIMG.png" width="150" alt="My Skills" />
 </div>
 
-<img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="300" alt="My Skills" align="right" />
+<img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="200" alt="My Skills" align="right" />
 Um gerenciador de finanças pessoais pra quem vive no limite do cartão (ou só quer parar de viver) e finalmente saber pra onde cada centavo foi.
 <br>
 <br>
@@ -114,49 +114,15 @@ Tudo fica salvo via API, então nada some quando você recarrega a página. (a n
 
 ---
 
+<div align="center">
+<img src="public/RodarProjeto.png" width="300" alt="My Skills" />
+</div>
 
 | # | Comando | Quando rodar | O que faz |
-|:-:|---------|--------------|-----------|
-| 1 | `npm install` | Sempre (primeira vez, ou após mudar `package.json`) | Instala o `firebase-tools` e demais dependências do projeto |
-| 2 | `npx firebase login` | Uma vez por máquina (só se ainda não estiver logado) | Autentica sua conta Google no Firebase CLI |
-| 3 | `npx firebase init emulators` | Uma vez por projeto | Configura os emuladores locais — marque **Auth**, **Firestore** e **Hosting** no wizard |
-| 4 | `npm start` | Toda vez que for testar | Sobe os emuladores e serve a aplicação em `http://localhost:5000` |
+|:-:|---|---|---|
+| 1 | `npm install` | Primeira vez ou após mudar o `package.json` | Instala as dependências do projeto |
+| 2 | `npx concurrently "npm run dev" "npm run backend"` | Toda vez que for testar a aplicação | Sobe o frontend React/Vite e o backend simulado ao mesmo tempo |
+| 3 | Abrir `http://localhost:5173` e `http://localhost:5234` | Após iniciar backend e frontend | Abre a aplicação no navegador e deixa a API disponível |
 
 ---
 
-# Tutorial: How to Configure and Run the Project
-
-## Prerequisites
-- Node.js installed (LTS version recommended)
-- npm (Node Package Manager) or yarn
-- Git installed
-
-## Step by Step
-
-### 1. Clone the Repository
-In the terminal, run the following command to clone the repository:
-
-```bash
-git clone [REPOSITORY_URL]
-cd [PROJECT_FOLDER_NAME]
-```
-## 2. Install Dependencies
-Install project dependencies with npm or yarn:
-```
-npm install
-# or
-yarn install
-```
-## 3. Configure the Environment
-The project uses a backend server simulated with json-server (REST API) and a frontend in React + Vite.
-
-## 4. Start Backend & Frontend
-In a terminal, run the command to launch the backend and frontend:
-```
-npx concurrently "npm run dev" "npm run backend"
-```
-## 6. Access the Application
-After starting the frontend, the application will be available at:
-
-Frontend: http://localhost:5173 (or the port indicated in the terminal)
-Backend (API): http://localhost:5234
