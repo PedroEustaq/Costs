@@ -56,8 +56,6 @@ Componentes: Dividem a aplicação em pequenos blocos reutilizáveis, facilitand
   <img src="public/Sidebar.jpg" width="250" alt="Sidebar"/>
 </div>
 
-Hooks & State Management: gerenciamento de estado, ciclo de vida e lógica dos componentes.
-
 ---
 
 <img src="public/useState.jpg" width="250" alt="Sidebar" align="right"/>
@@ -120,6 +118,4 @@ Tudo fica salvo via API, então nada some quando você recarrega a página. (a n
 | 1 | `npm install` | Primeira vez ou após mudar o `package.json` | Instala as dependências do projeto |
 | 2 | `npx concurrently "npm run dev" "npm run backend"` | Toda vez que for testar a aplicação | Sobe o frontend React/Vite e o backend simulado ao mesmo tempo |
 | 3 | Abrir `http://localhost:5173` e `http://localhost:5234` | Após iniciar backend e frontend | Abre a aplicação no navegador e deixa a API disponível |
-
----
 
