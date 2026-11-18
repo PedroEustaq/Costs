@@ -103,7 +103,7 @@ Flexibilidade: pode ser integrado a projetos existentes, não sendo necessário 
 <img src="public/ProjetoIMG.png" width="150" alt="My Skills" />
 </div>
 
-<img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="250" alt="My Skills" align="right" />
+<img src="https://i.ytimg.com/vi/mcb-4Y9msao/maxresdefault.jpg" width="300" alt="My Skills" align="right" />
 Um gerenciador de finanças pessoais pra quem vive no limite do cartão (ou só quer parar de viver) e finalmente saber pra onde cada centavo foi.
 <br>
 <br>
@@ -112,7 +112,7 @@ O projeto conta com uma aba onde você registra os seus gastos, e pode adicionar
 
 Tudo fica salvo via API, então nada some quando você recarrega a página. (a não ser a versão online por segurança)
 
-
+---
 
 
 | # | Comando | Quando rodar | O que faz |
