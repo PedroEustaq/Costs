@@ -43,7 +43,8 @@ A ideia principal é juntar HTML + JavaScript = JSX, onde no JSX permite escreve
 <br>
 <br>
 
-Além de funções essenciais como:
+<details>
+<summary><strong>Além de funções essenciais como:</strong></summary>
 
 ---
 
@@ -84,7 +85,10 @@ React Rendering: representa o processo de criação e atualização da interface
 <br>
 <br>
 
+</details>
+
 ---
+
 <div align="center">
 <img src="public/ProjetoIMG.png" width="150" alt="My Skills" />
 </div>
