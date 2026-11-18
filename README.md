@@ -69,7 +69,7 @@ State (useState): representa a memória do componente, onde ele guarda informaç
 
 ---
 
-<img src="public/useState.jpg" width="250" alt="Sidebar" align="right"/>
+<img src="public/useEffect.jpg" width="250" alt="Sidebar" align="right"/>
 
 Hooks (useEffect): permitem executar ações em determinados momentos, como buscar dados de uma API quando um componente aparece.
 
@@ -81,9 +81,9 @@ Hooks (useEffect): permitem executar ações em determinados momentos, como busc
 
 ---
 
-<img src="public/useState.jpg" width="250" alt="Sidebar" align="right"/>
+<img src="public/ReactRendering.jpg" width="250" alt="Sidebar" align="right"/>
 
-State (useState): representa a memória do componente, onde ele guarda informações, como nome, contador ou tema.
+React Rendering: representa o processo de criação e atualização da interface, exibindo os elementos na tela e refletindo mudanças de estado sem precisar recarregar a página.
 
 <br>
 <br>
